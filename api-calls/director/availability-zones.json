@@ -1,0 +1,6 @@
+{
+  "availability_zones": [
+    { "name": "${PRIVATE_SUBNET_AVAIALBILITY_ZONE}" },
+    { "name": "${PRIVATE_SUBNET_2_AVAIALBILITY_ZONE}" },
+  ]
+}

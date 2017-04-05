@@ -1,0 +1,25 @@
+{
+  "icmp_checks_enabled": true,
+  "networks": [
+    {
+      "name": "${DIRECTOR_NETWORK_NAME}",
+      "service_network": false,
+      "subnets": [
+        {
+          "iaas_identifier": "${PRIVATE_SUBNET_ID}",
+          "cidr": "${PRIVATE_SUBNET_CIDR}",
+          "reserved_ip_ranges": "${PRIVATE_SUBNET_RESERVED_IP_RANGE}",
+          "dns": "${DNS_SERVERS}",
+          "gateway": "${PRIVATE_SUBNET_GATEWAY}"
+        },
+        {
+          "iaas_identifier": "${PRIVATE_SUBNET_2_ID}",
+          "cidr": "${PRIVATE_SUBNET_2_CIDR}",
+          "reserved_ip_ranges": "${PRIVATE_SUBNET_2_RESERVED_IP_RANGE}",
+          "dns": "${DNS_SERVERS}",
+          "gateway": "${PRIVATE_SUBNET_2_GATEWAY}"
+        }
+      ]
+    }
+  ]
+}

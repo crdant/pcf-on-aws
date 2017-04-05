@@ -1,0 +1,33 @@
+{
+  "iaas_configuration": {
+    "access_key_id": "${PCF_ACCESS_KEY_ID}",
+    "secret_access_key": "${PCF_SECRET_ACCESS_KEY}",
+    "vpc_id": "${VPC_ID}",
+    "security_group": "${PCF_SECURITY_GROUP_ID}",
+    "key_pair_name": "${BOSH_KEY_PAIR}",
+    "ssh_private_key": "${SSH_PRIVATE_KEY}",
+    "region": "${REGION}"
+  },
+  "director_configuration": {
+    "ntp_servers_string": "0.amazon.pool.ntp.org,1.amazon.pool.ntp.org,2.amazon.pool.ntp.org,3.amazon.pool.ntp.org,4.amazon.pool.ntp.org",
+    "metrics_ip": "1.2.3.4",
+    "resurrector_enabled": true,
+    "max_threads": 1,
+    "external_database_options": {
+      "host": "${PCF_RDS_HOST}",
+      "port": "${PCF_RDS_PORT}",
+      "user": "${PCF_RDS_USER}",
+      "database": "${PCF_RDS_DATABASE}"
+    },
+    "blobstore_type": "s3",
+    "s3_blobstore_options": {
+      "endpoint": "https://${REGION}.amazonaws.com",
+      "bucket_name": "${OPS_MANAGER_BUCKET}",
+      "signature_version": "4",
+      "region": "{REGION}"
+    }  },
+  "security_configuration": {
+    "trusted_certificates": null,
+    "generate_vm_passwords": true
+  }
+}

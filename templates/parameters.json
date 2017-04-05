@@ -1,0 +1,42 @@
+[
+  {
+    "ParameterKey": "01NATKeyPair",
+    "ParameterValue": "${BOSH_KEY_PAIR}",
+    "UsePreviousValue": false
+  },
+  {
+    "ParameterKey": "02NATInstanceType",
+    "ParameterValue": "${NAT_INSTANCE_TYPE}",
+    "UsePreviousValue": false
+  },
+  {
+    "ParameterKey": "03OpsManagerIngress",
+    "ParameterValue": "${ALL_INTERNET}",
+    "UsePreviousValue": false
+  },
+  {
+    "ParameterKey": "04RdsDBName",
+    "ParameterValue": "${BOSH_RDS_NAME}",
+    "UsePreviousValue": false
+  },
+  {
+    "ParameterKey": "05RdsUsername",
+    "ParameterValue": "${BOSH_RDS_NAME}",
+    "UsePreviousValue": false
+  },
+  {
+    "ParameterKey": "06RdsPassword",
+    "ParameterValue": "${BOSH_RDS_PASSWORD}",
+    "UsePreviousValue": false
+  },
+  {
+    "ParameterKey": "07SSLCertificateARN",
+    "ParameterValue": "${CERTIFICATE_ARN}",
+    "UsePreviousValue": false
+  },
+  {
+    "ParameterKey": "09ElbPrefix",
+    "ParameterValue": "${ELB_PREFIX}",
+    "UsePreviousValue": false
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "setup": {
+    "decryption_passphrase": "${DECRYPTION_PASSPHRASE}",
+    "decryption_passphrase_confirmation":"${DECRYPTION_PASSPHRASE}",
+    "eula_accepted": "true",
+    "identity_provider": "internal",
+    "admin_user_name": "admin",
+    "admin_password": "${ADMIN_PASSWORD}",
+    "admin_password_confirmation": "${ADMIN_PASSWORD}"
+  }
+}
