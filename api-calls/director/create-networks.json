@@ -1,5 +1,5 @@
 {
-  "icmp_checks_enabled": true,
+  "icmp_checks_enabled": false,
   "networks": [
     {
       "name": "${DIRECTOR_NETWORK_NAME}",
@@ -10,14 +10,38 @@
           "cidr": "${PRIVATE_SUBNET_CIDR}",
           "reserved_ip_ranges": "${PRIVATE_SUBNET_RESERVED_IP_RANGE}",
           "dns": "${DNS_SERVERS}",
-          "gateway": "${PRIVATE_SUBNET_GATEWAY}"
+          "gateway": "${PRIVATE_SUBNET_GATEWAY}",
+          "availability_zone_names": ["${PRIVATE_SUBNET_AVAIALBILITY_ZONE}"]
         },
         {
           "iaas_identifier": "${PRIVATE_SUBNET_2_ID}",
           "cidr": "${PRIVATE_SUBNET_2_CIDR}",
           "reserved_ip_ranges": "${PRIVATE_SUBNET_2_RESERVED_IP_RANGE}",
           "dns": "${DNS_SERVERS}",
-          "gateway": "${PRIVATE_SUBNET_2_GATEWAY}"
+          "gateway": "${PRIVATE_SUBNET_2_GATEWAY}",
+          "availability_zone_names": ["${PRIVATE_SUBNET_2_AVAIALBILITY_ZONE}"]
+        }
+      ]
+    },
+    {
+      "name": "${SERVICES_NETWORK_NAME}",
+      "service_network": true,
+      "subnets": [
+        {
+          "iaas_identifier": "${SERVICES_SUBNET_ID_1}",
+          "cidr": "${SERVICES_CIDR_AZ_1}",
+          "reserved_ip_ranges": "${SERVICES_SUBNET_1_RESERVED_IP_RANGE}",
+          "dns": "${DNS_SERVERS}",
+          "gateway": "${SERVICES_SUBNET_GATEWAY}",
+          "availability_zone_names": ["${PRIVATE_SUBNET_AVAIALBILITY_ZONE}"]
+        },
+        {
+          "iaas_identifier": "${SERVICES_SUBNET_ID_2}",
+          "cidr": "${SERVICES_CIDR_AZ_2}",
+          "reserved_ip_ranges": "${SERVICES_SUBNET_2_RESERVED_IP_RANGE}",
+          "dns": "${DNS_SERVERS}",
+          "gateway": "${SERVICES_SUBNET_2_GATEWAY}",
+          "availability_zone_names": ["${PRIVATE_SUBNET_2_AVAIALBILITY_ZONE}"]
         }
       ]
     }

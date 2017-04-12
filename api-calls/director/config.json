@@ -13,6 +13,7 @@
     "metrics_ip": "1.2.3.4",
     "resurrector_enabled": true,
     "max_threads": 1,
+    "database_type": "external",
     "external_database_options": {
       "host": "${PCF_RDS_HOST}",
       "port": "${PCF_RDS_PORT}",
@@ -21,13 +22,16 @@
     },
     "blobstore_type": "s3",
     "s3_blobstore_options": {
-      "endpoint": "https://${REGION}.amazonaws.com",
+      "endpoint": "https://s3-${REGION}.amazonaws.com",
       "bucket_name": "${OPS_MANAGER_BUCKET}",
+      "access_key_id": "${PCF_ACCESS_KEY_ID}",
+      "secret_access_key": "${PCF_SECRET_ACCESS_KEY}",
       "signature_version": "4",
-      "region": "{REGION}"
-    }  },
+      "region": "${REGION}"
+    }
+  },
   "security_configuration": {
-    "trusted_certificates": null,
+    "trusted_certificates": "",
     "generate_vm_passwords": true
   }
 }

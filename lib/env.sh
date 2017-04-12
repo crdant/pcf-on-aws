@@ -10,7 +10,18 @@ prepare_env () {
   DNS_ZONE="${SUBDOMAIN}"
   DNS_TTL=60
   CIDR="10.0.0.0/20"
-  RESERVED_IP_RANGE="10.0.0.1-10.0.0.9"
+
+  SERVICES_CIDR_AZ_1="10.0.64.0/20"
+  SERVICES_CIDR_AZ_2="10.0.128.0/20"
+  PRIVATE_SUBNET_GATEWAY="10.0.16.1"
+  PRIVATE_SUBNET_RESERVED_IP_RANGE="10.0.16.1-10.0.16.9"
+  PRIVATE_SUBNET_2_GATEWAY="10.0.32.1"
+  PRIVATE_SUBNET_2_RESERVED_IP_RANGE="10.0.32.1-10.0.32.9"
+  SERVICES_SUBNET_GATEWAY="10.0.64.1"
+  SERVICES_SUBNET_1_RESERVED_IP_RANGE="10.0.64.1-10.0.64.9"
+  SERVICES_SUBNET_2_GATEWAY="10.0.128.1"
+  SERVICES_SUBNET_2_RESERVED_IP_RANGE="10.0.128.1-10.0.128.9"
+
   GATEWAY="10.0.0.1"
   ALL_INTERNET="0.0.0.0/0"
   DNS_SERVERS="8.8.8.8,8.8.4.4"
@@ -26,6 +37,7 @@ prepare_env () {
   ELB_PREFIX=`echo "pcf-lb-${DOMAIN_TOKEN}" | tr -d .`
 
   DIRECTOR_NETWORK_NAME="pcf-${DOMAIN_TOKEN}-${REGION}"
+  SERVICES_NETWORK_NAME="pcf-services-${DOMAIN_TOKEN}-${REGION}"
 
   CNI_CIDR="10.255.0.0/16"
 
@@ -59,7 +71,7 @@ prepare_env () {
 set_versions () {
   OPS_MANAGER_VERSION="1.10.1"
   OPS_MANAGER_VERSION_TOKEN=`echo ${OPS_MANAGER_VERSION} | tr . -`
-  PCF_VERSION="1.10.2"
+  PCF_VERSION="1.10.3"
   STEMCELL_VERSION="3263.20"
   MYSQL_VERSION="1.8.5"
   RABBIT_VERSION="1.8.0-Alpha-207"
@@ -78,4 +90,14 @@ product_slugs () {
   OPS_MANAGER_SLUG="ops-manager"
   SERVICE_BROKER_SLUG="pcf-service-broker-for-aws"
   PCC_SLUG="cloud-cache"
+}
+
+store_json_var () {
+  json="${1}"
+  variable="${2}"
+  jspath="${3}"
+
+  value=`echo "${json}" | jq --raw-output "${jspath}"`
+  eval "$variable=${value}"
+  echo "$variable=${value}" >> "${AWS_ENV_OUTPUTS}"
 }
