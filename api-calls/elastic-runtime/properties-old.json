@@ -1,0 +1,2731 @@
+{
+  "properties": {
+    ".properties.cc_api_rate_limit": {
+      "type": "selector",
+      "configurable": true,
+      "credential": false,
+      "value": "disable",
+      "optional": false
+    },
+    ".properties.cc_api_rate_limit.enable.general_limit": {
+      "type": "integer",
+      "configurable": true,
+      "credential": false,
+      "value": 2000,
+      "optional": false
+    },
+    ".properties.cc_api_rate_limit.enable.unauthenticated_limit": {
+      "type": "integer",
+      "configurable": true,
+      "credential": false,
+      "value": 100,
+      "optional": false
+    },
+    ".properties.cloud_controller_mutual_cert": {
+      "type": "rsa_cert_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "private_key_pem": "***",
+        "cert_pem": "-----BEGIN CERTIFICATE-----\nMIIDpTCCAo2gAwIBAgIUDDPOuGnH2a8St8c1+/KbuHuDA4MwDQYJKoZIhvcNAQEL\nBQAwHzELMAkGA1UEBhMCVVMxEDAOBgNVBAoMB1Bpdm90YWwwHhcNMTcwMzMwMTQy\nODE1WhcNMTkwMzMwMTQyODE1WjBRMQswCQYDVQQGEwJVUzEQMA4GA1UECgwHUGl2\nb3RhbDEwMC4GA1UEAwwnY2xvdWQtY29udHJvbGxlci1uZy5zZXJ2aWNlLmNmLmlu\ndGVybmFsMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0qGWTdoRlsHP\nC98QBYNbpV99NeIP/UQKXlR9XaMdNvM/7mpYnWmOLpF6wfZ0Rf2Mdlx7FFEISJHM\nk80YdrSogTZiy7b+kxhU8Zz40wSAVbYUcSzqW/8FHFMzc3zXxzH5k/7xKjBlJ7S3\nPrtnfVC+IABSqDvhkWAH5w/iu2F02HMPquNhVFSU1t62Vd4co+MmInoQ+c4lFktr\ny3ZDPxOg9s/y24K52nl+lmI+Fgpmdp5+ZpbeaLFMBaflccApPIBUblkiO/fwNjbG\ntCs1R57itNYlyAf4P6T2S3jDFKKrk69dhZV9q+hSBWvDNikArxai83iSs9T+z+Mh\nWNnwfuQwDwIDAQABo4GmMIGjMA4GA1UdDwEB/wQEAwIHgDAdBgNVHQ4EFgQUvzmu\nuWvgBb7I9rorA+uZXchjZGIwHQYDVR0lBBYwFAYIKwYBBQUHAwIGCCsGAQUFBwMB\nMB8GA1UdIwQYMBaAFO3S7VGm5qJozOvG+3lXhmKv79yFMDIGA1UdEQQrMCmCJ2Ns\nb3VkLWNvbnRyb2xsZXItbmcuc2VydmljZS5jZi5pbnRlcm5hbDANBgkqhkiG9w0B\nAQsFAAOCAQEAwQMxHyzUM3N9bbfQahdUkEU7v0iXf6SkqGxv70ERpLuOvq9F2Nor\n5z0SmDLwTlmKIXN1ZvcuKEtYFROc7C2Yfngu1AnBA2++WHGcpGILNmLHBkM10YKv\nGofzLtyn851ylPpWy9RGk/vFfH/GV4FYMBApJ2VE7SWI8IhG2ZjzDTiOQ0//bUmi\nMqs2ffsuasUW30Ivgv9yiqNVwAZFaDyZRRdtkgab5ZYA8zIlewE7V9ZLl4Po3kOs\nyyaLf4fVCXhzRQ+aFoKbK7ZpxpTcs5bgKYHc60BhF+lzCAJnFzM0jLsujLp/8d29\nVNe34cSlINRCl1hW/u2FDevbAVwDzadaXg==\n-----END CERTIFICATE-----\n"
+      },
+      "optional": false
+    },
+    ".properties.consul_encrypt_key": {
+      "type": "secret",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "secret": "***"
+      },
+      "optional": false
+    },
+    ".properties.consul_agent_cert": {
+      "type": "rsa_cert_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "private_key_pem": "***",
+        "cert_pem": "-----BEGIN CERTIFICATE-----\nMIIDWTCCAkGgAwIBAgIUF+jJ87yExAeKzM0jElhaRlwvRSswDQYJKoZIhvcNAQEL\nBQAwHzELMAkGA1UEBhMCVVMxEDAOBgNVBAoMB1Bpdm90YWwwHhcNMTcwMzMwMTQy\nODE1WhcNMTkwMzMwMTQyODE1WjA7MQswCQYDVQQGEwJVUzEQMA4GA1UECgwHUGl2\nb3RhbDEaMBgGA1UEAwwRY29uc3VsX2FnZW50X2NlcnQwggEiMA0GCSqGSIb3DQEB\nAQUAA4IBDwAwggEKAoIBAQDWx0czmLaRCoWiC6W3LMfwIN98xO0y+JdtCFo2NWFI\nIszwFyrgvWkp+Uw0cDrkRQo3x0+rUwkbWPxA8fPj8MmucDWO1us7eBPZ5eGHUHt6\nf2F5SQcY7VYhPKGBFpLoWJX6VDVHgQin2GbTmayYzf/MewkkWZld94lgqe3hzTW5\nsmYe/W3E7jj9fXqJ9yrIKI0S9SRK8mJJlqNvfSj4w7coBrneZPHKD4XBQzQe+j6f\ntF8U+LczV2Fxyaq/8krJPw+EplCelA8ZuNBPcNKezYy1zaVOT0UHO8mSuydbZTe2\nDP05TdNUeapmFtp/68yNQ0ElMllF5G/4yenfv6eBa0f9AgMBAAGjcTBvMA4GA1Ud\nDwEB/wQEAwIHgDAdBgNVHQ4EFgQUcKkwvHp92reg1FCnL77fVRPOidswHQYDVR0l\nBBYwFAYIKwYBBQUHAwIGCCsGAQUFBwMBMB8GA1UdIwQYMBaAFO3S7VGm5qJozOvG\n+3lXhmKv79yFMA0GCSqGSIb3DQEBCwUAA4IBAQArnjOgDArcEQCTuD4QXa0Gxhy7\nwMKTamEx3b1Qld9yInqCDgkkNjnABWLfr7ij+WxsHgeqtJ2gF2wYLZFGGdCIGHw5\nbtcpbqoqhcHGja7WNXUl38SriLmeda1usPMyOIEc7Mc4jvdfYc5/8mji/vaw18fR\neTp3UHpYLFzRgTZ5r4RKStE+EPXEXOwJJ7i6BG/ybN5YzR4XU41mvk5eRAtzmNBX\nKfuWIqzxkK/MPIFxgF9UtPAhqEFRsjsq3VVjLOw0QDTCvC0Ugaf0gOWT73UieqhX\n7XOVqXJ5g4578jmMPpu1ojBpTTLVcG8LqkpaERqxyARmM/yhrbTlMXC6NObv\n-----END CERTIFICATE-----\n"
+      },
+      "optional": false
+    },
+    ".properties.consul_server_cert": {
+      "type": "rsa_cert_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "private_key_pem": "***",
+        "cert_pem": "-----BEGIN CERTIFICATE-----\nMIIDgzCCAmugAwIBAgIULv4Ofz6UjcEBgEhgNbduxvNCCYUwDQYJKoZIhvcNAQEL\nBQAwHzELMAkGA1UEBhMCVVMxEDAOBgNVBAoMB1Bpdm90YWwwHhcNMTcwMzMwMTQy\nODE1WhcNMTkwMzMwMTQyODE1WjBAMQswCQYDVQQGEwJVUzEQMA4GA1UECgwHUGl2\nb3RhbDEfMB0GA1UEAwwWc2VydmVyLmRjMS5jZi5pbnRlcm5hbDCCASIwDQYJKoZI\nhvcNAQEBBQADggEPADCCAQoCggEBAKXLapI2Ph+pmprQ+e9aKU001K3UzQs85b4K\noIHttNpYfkHu8eWNiQCon4iJD5TaS7o2pQutR8+MeO1iRGiMGyEkh5+CGipmvtVG\ne8HtmeOXGhNDbuekLkQDxTvAmxvmhxH7jro4bGcyyl1T/xmdHz1o6ALE22bkttoJ\nci/ufb6mv7uffBjaqfLBhUmnYL03hiEaB8NlhKUXsyGT+tkaG06Qp3MCuWW8syHd\n9fimu/o8L+vT6YeKSBjf5eqaGnajKnw6J/zUSTlH86EBSdxfT9OtAW3hLavOr3xU\n4GiH9VYqsZKyxDOT2Kp9c1Mwg85e3kM1f8fH9hYU3aM4ziB952MCAwEAAaOBlTCB\nkjAOBgNVHQ8BAf8EBAMCB4AwHQYDVR0OBBYEFLepFLTcst0AprMTCLBBeVUhhB8G\nMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDATAfBgNVHSMEGDAWgBTt0u1R\npuaiaMzrxvt5V4Zir+/chTAhBgNVHREEGjAYghZzZXJ2ZXIuZGMxLmNmLmludGVy\nbmFsMA0GCSqGSIb3DQEBCwUAA4IBAQCbpm++xbQzn0epxVTvVacUif/HgDXGzb3O\naIFFX/M1k/iaPmThf2AtDJt1c3EaNxpMeC63XUL4cQ5lLxVl8jeYr7QvfrYDKbEW\ngnUDFOanNwsTCJ6VA9onf7N2PX+AAhr/3OOtwBUgbrhldyh2+ryJLo5SIBxf+XOq\nYYDSy4EXo6kSzhj+v+SNWdkpn+RZY0C8DIQz69K+GmiDo7I9glG53duXcBXbKiq9\nAe+1fgS25WXDR+KiJzYITaICY3vn4rtleZzHvNjmsqnfBSyHfeLugFym6T87e3ux\nz5mrt7NP3mRQLHZxHHBaiymOhn6yDlR8l7aXIzMEkbLRBawtVT9b\n-----END CERTIFICATE-----\n"
+      },
+      "optional": false
+    },
+    ".properties.auctioneer_client_cert": {
+      "type": "rsa_cert_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "private_key_pem": "***",
+        "cert_pem": "-----BEGIN CERTIFICATE-----\nMIIDXzCCAkegAwIBAgIVAKaqx1NSqU35JBoQRHPXl7vjn7UEMA0GCSqGSIb3DQEB\nCwUAMB8xCzAJBgNVBAYTAlVTMRAwDgYDVQQKDAdQaXZvdGFsMB4XDTE3MDMzMDE0\nMjgxNVoXDTE5MDMzMDE0MjgxNVowQDELMAkGA1UEBhMCVVMxEDAOBgNVBAoMB1Bp\ndm90YWwxHzAdBgNVBAMMFmF1Y3Rpb25lZXJfY2xpZW50X2NlcnQwggEiMA0GCSqG\nSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCp6V41yd9groH46h04CGF+JK8az25w99l6\n79hhGZlzZS3tXf3Q2C02gDcI/RL74WuPExOCl8bsN2h8fOz7R06st2Jrtqibio2k\n9/61oZPdfNUp/58pnyUhSjQL30AS1JLkqkTmU0Bx2ldiXKt/5gMlASEh1mFBw3Ex\no4+pZfLwpsVLJ7F8lXMSR76PZOjRTrkuLO79LB9rCS0/q0khbf5Ed882PyJpkErx\nc3iNmAoaZLoUMtw9ZFSFQ/c19cGuxfMKmXnpnn+WlNVsuRsD/xQ3D2tbWA68I3zB\nn2ZKuNnCPzTO9GLwNnWIPEBlyMQaic6pQSnZXbJ9jowsGyi72rHjAgMBAAGjcTBv\nMA4GA1UdDwEB/wQEAwIHgDAdBgNVHQ4EFgQUiRjWKjsu5DOZyuIoDFMOvh38+s8w\nHQYDVR0lBBYwFAYIKwYBBQUHAwIGCCsGAQUFBwMBMB8GA1UdIwQYMBaAFO3S7VGm\n5qJozOvG+3lXhmKv79yFMA0GCSqGSIb3DQEBCwUAA4IBAQAVCnZOEACTvZdCcQ9h\nkmqmylV1YaO9o6sBVkcUKh62d71a0MHiUhvdL+6BI+wXV9nH0LP2pgalHe7uGVLo\n0JElgBqzMTVMZwwmkqQ2FV2Tn+a+vbyANyMNF6ZlWlq6YoDeXHnUtbu+NXCRM+CE\nQsI8iKIWwvHlHGmHSrs4J8D6So6kfaQZWLovojm6Vqtbuh6RMlJ/JwqLV1Zj40PY\nA7K+Hv67mcqaU4bdd8gi/IM7U7644f/TV2PXQ1tcc46Oe0GOA45GmjaGqg74Uug1\nhWhRLX1bucm6pL/XJ2AikES7JubqYUC+8aZ32yrIdgCF1ZZ7Z6LnDADFoRyKL5sS\nPq8Y\n-----END CERTIFICATE-----\n"
+      },
+      "optional": false
+    },
+    ".properties.auctioneer_server_cert": {
+      "type": "rsa_cert_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "private_key_pem": "***",
+        "cert_pem": "-----BEGIN CERTIFICATE-----\nMIIDtjCCAp6gAwIBAgIVALFX3oOMepvrworrxtflv338eVMaMA0GCSqGSIb3DQEB\nCwUAMB8xCzAJBgNVBAYTAlVTMRAwDgYDVQQKDAdQaXZvdGFsMB4XDTE3MDMzMDE0\nMjgxNloXDTE5MDMzMDE0MjgxNlowSDELMAkGA1UEBhMCVVMxEDAOBgNVBAoMB1Bp\ndm90YWwxJzAlBgNVBAMMHmF1Y3Rpb25lZXIuc2VydmljZS5jZi5pbnRlcm5hbDCC\nASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALDj7rQj9qjOtaFs1ZfXMdpc\n5ZMU/c1bXJqr2ChjZDFL6bAMPRQGz93zm5VYUo+pYB6LMRZUpvLVZFe7botddk0Q\nvvwdTNbTAdz0rkx3qgatJWHEZ4qZIPg7GU1dnya45GHZmePWQfWa3fmWACJooPM6\nIcs8OZhpBJkvpAsD0rrJRfORFC6r0f3Z4o+pkCAo3RLkamgIfL4HhCP3zXYAVqkd\nPREsrSDBQtrOFeptlSO0o4TSuL6UXIwoiJ60lXolHs+UGmUGC9Js6CAjucJQwptv\nmiTXNGhA5zR+CBqM4QX+Ko+iVpOTg3EGZc+VOlw1ylVXNatCirD7pWZ+6uJ3zSEC\nAwEAAaOBvzCBvDAOBgNVHQ8BAf8EBAMCB4AwHQYDVR0OBBYEFM3fObRJOjWsANW+\nLjJ+wuCCADfGMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDATAfBgNVHSME\nGDAWgBTt0u1RpuaiaMzrxvt5V4Zir+/chTBLBgNVHREERDBCgh5hdWN0aW9uZWVy\nLnNlcnZpY2UuY2YuaW50ZXJuYWyCICouYXVjdGlvbmVlci5zZXJ2aWNlLmNmLmlu\ndGVybmFsMA0GCSqGSIb3DQEBCwUAA4IBAQDovm9tp0NMONaBlIon18gkH2vPhwqH\nbWzxIF4igbYQc8hO0nZm48zR1Yf7Cd9Ly3gu/acXKrIprez9Ik9/IkQF0MJ4WedX\nJJ1QfPh9ehZtjhKvbdwGTdifswUkZkrziqtYi+eBDeWoOPW0ke3NrdjFT0TijLRS\n+kGLd09i0JHEkshz0ziZjfxbkbNQAxvNJKfC+OxQ8vjpd/FVmtz8ttpTMwTiDLd1\no7Jpwi+Nn105cDLeE0w340I7mVWudOJg9DR4i6c/5XgaqtqKsWJWB9GJGaP/HeV6\n9WW/dgxKB2iixBoibuKHZbjXgDv2KkdNLbQuM4P0b1wxp4fT6VRr1ECl\n-----END CERTIFICATE-----\n"
+      },
+      "optional": false
+    },
+    ".properties.bbs_client_cert": {
+      "type": "rsa_cert_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "private_key_pem": "***",
+        "cert_pem": "-----BEGIN CERTIFICATE-----\nMIIDVzCCAj+gAwIBAgIUB5YuzGu4ARIYIjA9zU3Pcp4RFfgwDQYJKoZIhvcNAQEL\nBQAwHzELMAkGA1UEBhMCVVMxEDAOBgNVBAoMB1Bpdm90YWwwHhcNMTcwMzMwMTQy\nODE2WhcNMTkwMzMwMTQyODE2WjA5MQswCQYDVQQGEwJVUzEQMA4GA1UECgwHUGl2\nb3RhbDEYMBYGA1UEAwwPYmJzX2NsaWVudF9jZXJ0MIIBIjANBgkqhkiG9w0BAQEF\nAAOCAQ8AMIIBCgKCAQEAraDBdKTFL03ECINm1ZThoBkPyQphUP8bW+VxvPe0g7ko\nDGUEImmd6tooch01eTLNS4tX0a5dZcNvutWeLtX/cJHfQP9eiRF3Ppz2DcLvEuvt\nD9qkhqkgu8KmFZJ1tt1SkAdO+HOF64NEYwNPAGfCa/WhnnzAxttTMNCIx5WvAi3R\nrDpJN4jLQgBtBofQL3s0fTr4rWrQzE8w4W4C2El/UaqJi7nDPc/5lQH+hkdf25Uf\nYSDcaTL4ck4Zz/MkPaJhM+xL2jfvzipnj72GcYY/wtcwU0JuH7rdN+2dhUDDZBFq\naZLQxqQsG0j63MDSJLUpwHemz+Jzcjw/aLeaLDmjXwIDAQABo3EwbzAOBgNVHQ8B\nAf8EBAMCB4AwHQYDVR0OBBYEFBOHR37fEvULmhzENvG3jYTO1esyMB0GA1UdJQQW\nMBQGCCsGAQUFBwMCBggrBgEFBQcDATAfBgNVHSMEGDAWgBTt0u1RpuaiaMzrxvt5\nV4Zir+/chTANBgkqhkiG9w0BAQsFAAOCAQEAhggB3rHltLnKIB1BFGEolmvVpG6m\nfHLc0LRSh4gOD7Q4eL1H8vQdb/sLMTKimeHzhOBx2PE4E7gGHU1BIv+E1NqTaEdz\nBNDnZPKahLnHFPTRYxuKNjNGlV0+rN7CHXBxnWTRMY4URwHszxafdhnRcrdbDIHJ\n+UYs7QmGFLyrbw5cQdyRoAgILiiIMccnC/gL3GJufd9SXUGzrlN88XKPSGT1ODPB\nK7ZZ/ajpvQy8FbfciG/M2sppnYkg5gpQwAVXcIuJmxxnWHU7z8+w9g7l9MqgI66H\nTMd9fXS9ii7f/Jk1iPQ9INgunLu0WjnRtUjL/dm1ncjQJ9sNiddoc2VrGw==\n-----END CERTIFICATE-----\n"
+      },
+      "optional": false
+    },
+    ".properties.bbs_server_cert": {
+      "type": "rsa_cert_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "private_key_pem": "***",
+        "cert_pem": "-----BEGIN CERTIFICATE-----\nMIIDoDCCAoigAwIBAgIUME9yOaeThHFUZVnTaj6qbqHQigkwDQYJKoZIhvcNAQEL\nBQAwHzELMAkGA1UEBhMCVVMxEDAOBgNVBAoMB1Bpdm90YWwwHhcNMTcwMzMwMTQy\nODE2WhcNMTkwMzMwMTQyODE2WjBBMQswCQYDVQQGEwJVUzEQMA4GA1UECgwHUGl2\nb3RhbDEgMB4GA1UEAwwXYmJzLnNlcnZpY2UuY2YuaW50ZXJuYWwwggEiMA0GCSqG\nSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDJFOebMy5cyChQELoFkicSm5U7sicqX/IK\n72reCsyHW93gJBqhxKJjtFooD6DV6NW7dQB3g66el6WLDQ52NM1A8INkiY1Nx+bc\n+9XHGSXBLwNqJuPIjKeICkuWterVScI3LKXTwDaXvit+L6waP2uoO8zos8ZvUMeC\nxPwdODKL6KF79QfmggbtwzIIjfs6duxi6RwOAcmu6tzjITdSTuirlvMtgYNttb1T\nUriYu8WFrcOh2qMgnb4Z8vDmeapKJp5lxNSWrLzpRgddduvOcOO/Yx7r6TnGhoFA\nNsAJTFHMzfNWX8n65BqbUQAYABxjkSdpOAjfco4a+dDCB166WY05AgMBAAGjgbEw\nga4wDgYDVR0PAQH/BAQDAgeAMB0GA1UdDgQWBBQH3EW8z0wzr4hb147PQG0aAL3q\n/DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwEwHwYDVR0jBBgwFoAU7dLt\nUabmomjM68b7eVeGYq/v3IUwPQYDVR0RBDYwNIIXYmJzLnNlcnZpY2UuY2YuaW50\nZXJuYWyCGSouYmJzLnNlcnZpY2UuY2YuaW50ZXJuYWwwDQYJKoZIhvcNAQELBQAD\nggEBAA0+nfFVuw8BjC9tmFHNAc9GIGhRtIkJI6tDoh93+8BMYYkZvZb6tKx9n0gK\nm3BNcwWRUzCxETeO4csfkkf1CWBR2NkhLmDHvlOQNhVDX0i5X0GPzHa9c98FY8CR\nczr4tfPNUQ+MyApeZMoR1DaZdAlJ8cvo0HZjbxqh2wgUAmCPKA1NJqkvHlL0ZmrP\n2Ezh2Wua1MXJEPUYuyOe1QmQNcqGnKPj+uqFTdlO76Y4Rswo5SLhYjMAqH6Rk22z\nk0jvjILS+wAjlB+Tmbk4b518OU3AahmD6XqSH0dJR/bw75Ae2gL1BxJxXHrsNBLc\nwcZqaYTe/VUH7FVdhvFyks8yma4=\n-----END CERTIFICATE-----\n"
+      },
+      "optional": false
+    },
+    ".properties.rep_client_cert": {
+      "type": "rsa_cert_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "private_key_pem": "***",
+        "cert_pem": "-----BEGIN CERTIFICATE-----\nMIIDVzCCAj+gAwIBAgIUXMKVifAUcVG/bs2kU7qb6lBUGZUwDQYJKoZIhvcNAQEL\nBQAwHzELMAkGA1UEBhMCVVMxEDAOBgNVBAoMB1Bpdm90YWwwHhcNMTcwMzMwMTQy\nODE2WhcNMTkwMzMwMTQyODE2WjA5MQswCQYDVQQGEwJVUzEQMA4GA1UECgwHUGl2\nb3RhbDEYMBYGA1UEAwwPcmVwX2NsaWVudF9jZXJ0MIIBIjANBgkqhkiG9w0BAQEF\nAAOCAQ8AMIIBCgKCAQEA7ztS/sFCPdRNPlmWJzooYqtOz6bt7HnrSh5UdHFm4B+Z\n5Zj/Hs5yuvA4JogeUGnnlahT5BrupyB6OIdgfSk8nj1GSPMp+ocON7lXrt+MitGg\ndoaoxkSPiUyabWOuQoxHpNN9CPRLRKeKqvEqCO2t+Yx1ZjTwVHdi7lv4Nseeotu4\nDNicy0eeTc1WspPMG58poNaHcx2ehJNr+eRbF/3/6n23Pq+eH1sbDewzHOs/uHoT\nLSnlhIGDJcF8EWIyV6cc/WSeQByxcEmRZU5MCaVzVPLSsR9RjtUQPdjyFTVk8txX\nVKzzAXdDyAXWqART9UHeNgBr4b/xpL569Ovi8VenvQIDAQABo3EwbzAOBgNVHQ8B\nAf8EBAMCB4AwHQYDVR0OBBYEFOgTCr6B5ePPDNoyaQ5IQsgao74iMB0GA1UdJQQW\nMBQGCCsGAQUFBwMCBggrBgEFBQcDATAfBgNVHSMEGDAWgBTt0u1RpuaiaMzrxvt5\nV4Zir+/chTANBgkqhkiG9w0BAQsFAAOCAQEAY8EnGQQKbL+6cM/YDqu3/CB5RwsK\nXS37HjIPTY0n0TnEMPTFkyzXpZjesaxD5EcsmO9s+aKoEUN58t6lfhI7MSXzR6dq\nRX05BzehfwrwsYqWBWmQRz5e5sxznOZE5BqcYShP7kGJfZPac2v0DUVo1Xb6hrtR\nJkJrFP7nrCmGkJhF6DvafOh52Tya2YdlO5X6Ur62FbxNvcPJctlG2lxtW+oUyW5J\nwJLLjZ51I2kWyCKJ//knwyaB46HuxHfVCM3sd5MxVp/BMg5XEnRXgU96C4OUbVH3\n1++VVoukY9CkoaBD+QEJB/lEp4XmDmPLE5ysSK7YXOqJ0E63dG9gffQjaQ==\n-----END CERTIFICATE-----\n"
+      },
+      "optional": false
+    },
+    ".properties.rep_server_cert": {
+      "type": "rsa_cert_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "private_key_pem": "***",
+        "cert_pem": "-----BEGIN CERTIFICATE-----\nMIIDpDCCAoygAwIBAgIVAIR+1ULHagZoX1sv8IlIpxIZX/jYMA0GCSqGSIb3DQEB\nCwUAMB8xCzAJBgNVBAYTAlVTMRAwDgYDVQQKDAdQaXZvdGFsMB4XDTE3MDMzMDE0\nMjgxNloXDTE5MDMzMDE0MjgxNlowQjELMAkGA1UEBhMCVVMxEDAOBgNVBAoMB1Bp\ndm90YWwxITAfBgNVBAMMGGNlbGwuc2VydmljZS5jZi5pbnRlcm5hbDCCASIwDQYJ\nKoZIhvcNAQEBBQADggEPADCCAQoCggEBALkpPIsV/2FCrN+XIrRY8ikJduixKdw3\nGetQZwOKc64HgfP//Zo0kEC+wSHGU/L4HrpMKkrfZTgRB1FCOjE5IHmPmLzFTGI4\nrRupnch0+S1dSeezg/cs4NrEqQcyKu/2pafKwrZsM6iGC4Adb5fh04GH+cHM8n9G\nzDr/UBCHs5aiUVQGL7I0F0RfPVXF4AEKTsYYtfSJ4QCIsnAbCTw/ODBIp5I5hk9j\nWb9tKnY6a440H6fZXZRzVIQKBYfpjvb0R0X7GpmE3QSsSqqcy8s5uaspoJU+NNTS\nFcMLOwE1Kp+9L6zLhclyxauvKTBitzVekqS+VxCczqeBsH5A8emZlbcCAwEAAaOB\nszCBsDAOBgNVHQ8BAf8EBAMCB4AwHQYDVR0OBBYEFDwsjhiIxAinKxxgKWiyc31K\n1WNfMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDATAfBgNVHSMEGDAWgBTt\n0u1RpuaiaMzrxvt5V4Zir+/chTA/BgNVHREEODA2ghhjZWxsLnNlcnZpY2UuY2Yu\naW50ZXJuYWyCGiouY2VsbC5zZXJ2aWNlLmNmLmludGVybmFsMA0GCSqGSIb3DQEB\nCwUAA4IBAQAMz3V+9MMr2mDd94vCnv4FjjnNWhiV8Qke7AcsyoEEfGXPXLnME9gl\nk/N6Fa3ypd0HiJt9P+jFAdicHmwvn7XuSfuzS42WkXiJ7nGySjKCuzN6V/gPbdwj\n/cOXGgBgudAExjMBwqPhE/7FT6LOm/XYq4aXfd6RURcDQFYIsYSoTgrkTKM8h4Xx\ngeG90CMfM/cBWEgeSnvYvSdmg8pyIQ5kTMHMFfanYc3eGhAFUkOQJUMlHVxLeCfd\n07Kc4MEq67Cdtvo8mwI4uGpSYcdlDDi5184PhnWdBeFOsCZABkPksKL5uasmdbjX\noIgQy4mYQww0GsMcxkMYbl5tgrCkPbF1\n-----END CERTIFICATE-----\n"
+      },
+      "optional": false
+    },
+    ".properties.tps_client_cert": {
+      "type": "rsa_cert_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "private_key_pem": "***",
+        "cert_pem": "-----BEGIN CERTIFICATE-----\nMIIDWDCCAkCgAwIBAgIVALn0yJn/xyq2FQL5p06dZ4DM5aCtMA0GCSqGSIb3DQEB\nCwUAMB8xCzAJBgNVBAYTAlVTMRAwDgYDVQQKDAdQaXZvdGFsMB4XDTE3MDMzMDE0\nMjgxNloXDTE5MDMzMDE0MjgxNlowOTELMAkGA1UEBhMCVVMxEDAOBgNVBAoMB1Bp\ndm90YWwxGDAWBgNVBAMMD3Rwc19jbGllbnRfY2VydDCCASIwDQYJKoZIhvcNAQEB\nBQADggEPADCCAQoCggEBAOkOiKuXyJK1JmINbWrXnCQtuBYQzyWt+6oom5SgAi55\nbt5sw40o7DT9oiKgl47z4s4IRfuR3jRdayt84LtsFcbsxbfnSgX74G6J8wtR/e5q\nSoqvaudwkbtztfy4Z/Q+WSUYxEbnqd7lXR1tpWxkt9w6lY6m/FCwaw17lfnSldIR\nCN/NfaEVIMcwY+Ec9noo+L5XbE3VmoBokSWdM/NQpgJGAaOqhN9afUBo/DBcz8+L\nds+yDrsAlMR+dMzab6RjDh6sczgsGTUAc+kE6bNmeHY70XeU5zsI/IZ459j9pO3f\n8tnN8e+tRuZSOCLKGUS8Y96IuXYdOrrwTyB1zbqijJsCAwEAAaNxMG8wDgYDVR0P\nAQH/BAQDAgeAMB0GA1UdDgQWBBRfrzxFExB118hBiH7I+V6/NH8gazAdBgNVHSUE\nFjAUBggrBgEFBQcDAgYIKwYBBQUHAwEwHwYDVR0jBBgwFoAU7dLtUabmomjM68b7\neVeGYq/v3IUwDQYJKoZIhvcNAQELBQADggEBAJqRfZWeXGX+HJClKYQr77aHHw3T\nTD6hvY9gCUGtffMzJ+VRK9Up0E2v0qb6RST9e4ORWvAJ3bcIGYZcJWR1m2ZcSf/2\nTosMJQU8xmsBTOb0yKnT5HIbc4vm0iRWQXDtAdlR9XojyPIJYfQHb+GFPYVe7p6N\nQ3gUkvYBf/tPeO1A1iV7tgVyQ03dXtaZ1vp7tc4zkSd0p4St1Jchyem1V6nQFd0l\nnTH0bfSrtCHiO4yxAW1CjEnSYjJGkAKWPnf5L2xlKFt3E7MfXk3+OdwcBNTb5mv1\nXUsrASOTWhQdoF2Emtr7lYFF5q9rfDohHSUv5FbXctXoqjJVy6RgHCFx/5A=\n-----END CERTIFICATE-----\n"
+      },
+      "optional": false
+    },
+    ".properties.nfs_volume_driver": {
+      "type": "selector",
+      "configurable": true,
+      "credential": false,
+      "value": "enable",
+      "optional": false
+    },
+    ".properties.cf_etcd_peer_cert": {
+      "type": "rsa_cert_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "private_key_pem": "***",
+        "cert_pem": "-----BEGIN CERTIFICATE-----\nMIIDrDCCApSgAwIBAgIUTkufy4tRV4DSgYpR8ksK2YSZvAEwDQYJKoZIhvcNAQEL\nBQAwHzELMAkGA1UEBhMCVVMxEDAOBgNVBAoMB1Bpdm90YWwwHhcNMTcwMzMwMTQy\nODE2WhcNMTkwMzMwMTQyODE2WjBFMQswCQYDVQQGEwJVUzEQMA4GA1UECgwHUGl2\nb3RhbDEkMCIGA1UEAwwbY2YtZXRjZC5zZXJ2aWNlLmNmLmludGVybmFsMIIBIjAN\nBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA5ThT2yhjPJrXSb3pzP9W7WGDDTPN\n09INuSyzb37kX9ZMvxuepQkbFMOuDdX5+q2EoyxW1THxUAnynJNYKro11S54CSEk\niYZLXcWSmZ0IoIpMtDegJEG0T5YYIuxsKSnC9Apn8426MESJH6r1a9QZfgt9rqxc\n0laKoAwsBYzEQV0hNLKrs4T8hTH4tq9y+wLxXIjFbjhsaFmdAuJi4DbPXJI0Va6n\nF4sM2Zwngz+JwEi9A1pJ9Y81aAy73nPrNWZMqeq4qInduViTGPUQChfX98nf20Xs\nPht+KFkrY63iuUER84HcxDdgJTRA0qyxYMEanPCvRd+HWQ+eE5i7525aoQIDAQAB\no4G5MIG2MA4GA1UdDwEB/wQEAwIHgDAdBgNVHQ4EFgQUAh4ra8MNg+MmFKLvsCVc\nv7JeDDQwHQYDVR0lBBYwFAYIKwYBBQUHAwIGCCsGAQUFBwMBMB8GA1UdIwQYMBaA\nFO3S7VGm5qJozOvG+3lXhmKv79yFMEUGA1UdEQQ+MDyCG2NmLWV0Y2Quc2Vydmlj\nZS5jZi5pbnRlcm5hbIIdKi5jZi1ldGNkLnNlcnZpY2UuY2YuaW50ZXJuYWwwDQYJ\nKoZIhvcNAQELBQADggEBAJbdjaexlUh53WiSzHMZ3/YUT/bv6X0gyxNPCiyokXw1\nCt+AUfI35d3/bBjhnMnR0/Oq11+nb+4J4ctNjm6v54gmYjmV5oA7avDyPFvWU7H2\nqkJKblup4LJz1b8JVIURwJr4dPVF2mL0tcDa3OsMXzWwHsPyu+3s94ei5B+SHiz4\nQVnEmPplzi+A89VVqYCvCL9vlMQWibJtttHM30v1RB3xVgmOVVxlSgdSOmtIkCSX\nPZGf0QIlK17QmQCz7pOnp1oWpJU3fBF4A8BYCAYmRybZ5ygJXxTRh/0B1Xtp8kCH\nJnVEUoJ+MThl9ABr4EfRsg+tvQHkiK8A9EeK5B9ReLk=\n-----END CERTIFICATE-----\n"
+      },
+      "optional": false
+    },
+    ".properties.cf_etcd_client_cert": {
+      "type": "rsa_cert_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "private_key_pem": "***",
+        "cert_pem": "-----BEGIN CERTIFICATE-----\nMIIDWzCCAkOgAwIBAgIUIrHFVZMJ5QdI8e2T7OopHqsH72YwDQYJKoZIhvcNAQEL\nBQAwHzELMAkGA1UEBhMCVVMxEDAOBgNVBAoMB1Bpdm90YWwwHhcNMTcwMzMwMTQy\nODE3WhcNMTkwMzMwMTQyODE3WjA9MQswCQYDVQQGEwJVUzEQMA4GA1UECgwHUGl2\nb3RhbDEcMBoGA1UEAwwTY2ZfZXRjZF9jbGllbnRfY2VydDCCASIwDQYJKoZIhvcN\nAQEBBQADggEPADCCAQoCggEBAJxfBlZ6g7fJPpHxbFtzX5SVLMDlYzyh2z+1dFIC\nhrblmx5R7N2Ev15RGUfdTzAG0voyO2B7fuwOUXrVsXnbd+rjfFf9hAwfCgdwwXBU\nu391LEReListOV6fwVtCeIxYnml3zVtD3VbRWtLupgapB64Rdo5Q23e2Nz973/Bc\n6RXGqRi7fRH636pCg2LAsvj0rslqFTCWTYUNBJOs6rs3kNv5sOakR8RK38caxgF+\nF4T03DsmejBpmlTotO6c7HrxNBzyrLXqD8GyDwE5RAhpNJngrCALB1zH+HK3np34\nk2zP6vOSb+C9sBbgBSxC30zR+BvcyRPp/jSNgdofqzsUzgMCAwEAAaNxMG8wDgYD\nVR0PAQH/BAQDAgeAMB0GA1UdDgQWBBQNyC1KvPRNmuBibLKv6hmp6+iDwjAdBgNV\nHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwEwHwYDVR0jBBgwFoAU7dLtUabmomjM\n68b7eVeGYq/v3IUwDQYJKoZIhvcNAQELBQADggEBANx0DOgrGK0ebDEO/C5tSgwy\nvGiWxXLGq7AQQU9hv/CV309mmjjha5pPvOnuAiuiCNFm3JtpSh84NJ+df+Xgh5j7\n174sr5jeJ6rB9oitKK8NT9IPwGNjy1rYPD+1u/Gaj4eDIwaBH5fDtX0luiO1btfQ\nt3oAIi9IgI5miqK/DCK4YLeNbL7xB7DoWgdQHRtr85XDIkKhqAuHPZYaKHNGsz5J\ns5h0ORjBW6qbfQptooZCFZv1TnEW5+VhBfDuudi+ws6tNMKPtYktoqNCE+tfuM+i\nxA/9AvrB7c4LSlaGaD7DfeGgkxJWwoF1ORTaXmfs3mb4V0y1uhj3Q/B7KxhLsWQ=\n-----END CERTIFICATE-----\n"
+      },
+      "optional": false
+    },
+    ".properties.cf_etcd_server_cert": {
+      "type": "rsa_cert_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "private_key_pem": "***",
+        "cert_pem": "-----BEGIN CERTIFICATE-----\nMIIDrTCCApWgAwIBAgIVAO47l9hRiXcW7uV67/507nDQyAa8MA0GCSqGSIb3DQEB\nCwUAMB8xCzAJBgNVBAYTAlVTMRAwDgYDVQQKDAdQaXZvdGFsMB4XDTE3MDMzMDE0\nMjgxN1oXDTE5MDMzMDE0MjgxN1owRTELMAkGA1UEBhMCVVMxEDAOBgNVBAoMB1Bp\ndm90YWwxJDAiBgNVBAMMG2NmLWV0Y2Quc2VydmljZS5jZi5pbnRlcm5hbDCCASIw\nDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAL1fh/e+OTC9Z/whN/Twj5shPiko\noNTHPKp51OaQ/ojBtQgZCmDjQ0Lcwn57wZPL7yt+LOheV9+3fSlUkFIyKmNI56GV\nN3H+YDQN8iEO7vCy/pZ9QRYCypTfqHQS3Ks3Yox4wMobbBarXvVu1MwjCxUTOTv9\nZEcUPxRWAW4SqaqVdCKqh/If/xVv10byeq+p033Ah1N/sNlSmCgTV5GbpL4XWAhB\nJuqB1Z7n9hjEh078h2q9MAFn/3QJ6ZiCl1oNhSoz8NjPFIai+h/sct1bl8dmrlGt\nJkH/IohB1q4QBD5mnsSJDH+RIrai38lZPgIxPp7WRQxTi8PyzHMrPdcPasECAwEA\nAaOBuTCBtjAOBgNVHQ8BAf8EBAMCB4AwHQYDVR0OBBYEFDLiGxLu/7dIBGTf30iO\nTNafzsc5MB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDATAfBgNVHSMEGDAW\ngBTt0u1RpuaiaMzrxvt5V4Zir+/chTBFBgNVHREEPjA8ghtjZi1ldGNkLnNlcnZp\nY2UuY2YuaW50ZXJuYWyCHSouY2YtZXRjZC5zZXJ2aWNlLmNmLmludGVybmFsMA0G\nCSqGSIb3DQEBCwUAA4IBAQAMqcVUDGF3voy2x9meHHloohdT1lnnsb1mp4Ojt0XI\n6TH4r7jGiwdTbrgL/mitQbC9NKXuY0Pt1TlAAU4RDPy31SacrgmQaErTA95nPrDC\n3pnYdqww/5iDK8U2kO4t+JT7d8kO/pS3y41QPPRW3rlsXcn+QMRIetyKRah0xoWo\n9i+Nc1Yg6cJXI14tUWBB7A1PvdfpgceEaGWWRe/fm/Di7diOGNBXLGoVCUOkfk0I\n0L5haaKniNU9oHrBwBRDnl2kvOJQHHUl3QSpaawXhX1xDp/BMZej1/BV7+wH1A/V\nc9Hf1JgZOXoAr8mK1KvRXeHUEYyWNy7GEDNsVJbpfnT6\n-----END CERTIFICATE-----\n"
+      },
+      "optional": false
+    },
+    ".properties.garden_disk_cleanup": {
+      "type": "selector",
+      "configurable": true,
+      "credential": false,
+      "value": "threshold",
+      "optional": false
+    },
+    ".properties.garden_disk_cleanup.threshold.cleanup_threshold_in_mb": {
+      "type": "integer",
+      "configurable": false,
+      "credential": false,
+      "value": 10240,
+      "optional": false
+    },
+    ".properties.logger_endpoint_port": {
+      "type": "port",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": true
+    },
+    ".properties.syslog_host": {
+      "type": "network_address",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": true
+    },
+    ".properties.syslog_port": {
+      "type": "port",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": true
+    },
+    ".properties.syslog_protocol": {
+      "type": "dropdown_select",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": true,
+      "options": [
+        {
+          "label": "TCP protocol",
+          "value": "tcp"
+        },
+        {
+          "label": "RELP protocol",
+          "value": "relp"
+        },
+        {
+          "label": "UDP protocol",
+          "value": "udp"
+        }
+      ]
+    },
+    ".properties.networking_point_of_entry": {
+      "type": "selector",
+      "configurable": true,
+      "credential": false,
+      "value": "external_ssl",
+      "optional": false
+    },
+    ".properties.networking_point_of_entry.external_ssl.ssl_rsa_certificate": {
+      "type": "rsa_cert_credentials",
+      "configurable": true,
+      "credential": true,
+      "value": {
+        "private_key_pem": "***",
+        "cert_pem": "-----BEGIN CERTIFICATE-----\r\nMIID2DCCAsACCQCdF636MXsKHTANBgkqhkiG9w0BAQsFADCBrTELMAkGA1UEBhMC\r\nVVMxFjAUBgNVBAgMDU1hc3NhY2h1c2V0dHMxEjAQBgNVBAcMCUNhbWJyaWRnZTEW\r\nMBQGA1UECgwNQ2xvdWQgRm91bmRyeTEZMBcGA1UECwwQQXp1cmUgRGVwbG95bWVu\r\ndDEjMCEGCSqGSIb3DQEJARYUY2RhbnRvbmlvQHBpdm90YWwuaW8xGjAYBgNVBAMM\r\nESouYXp1cmUuY3JkYW50LmlvMB4XDTE3MDMzMTE0MTIyM1oXDTI3MDMyOTE0MTIy\r\nM1owga0xCzAJBgNVBAYTAlVTMRYwFAYDVQQIDA1NYXNzYWNodXNldHRzMRIwEAYD\r\nVQQHDAlDYW1icmlkZ2UxFjAUBgNVBAoMDUNsb3VkIEZvdW5kcnkxGTAXBgNVBAsM\r\nEEF6dXJlIERlcGxveW1lbnQxIzAhBgkqhkiG9w0BCQEWFGNkYW50b25pb0BwaXZv\r\ndGFsLmlvMRowGAYDVQQDDBEqLmF6dXJlLmNyZGFudC5pbzCCASIwDQYJKoZIhvcN\r\nAQEBBQADggEPADCCAQoCggEBANUU8ofC3GxuxJEGOVYJ2jU98ZqryZ1h8wBS4b0v\r\nFE/EhwI5hmXSMeUOx9MtNhw2/5TbMq0LNucoZMZqMW/iX3oeGhhDDb8SlTcG/Uxq\r\nvlq+tHl2E78+NqdblUgv1kC3q6NiSnDAn26gWdI4b9ji+wKEsvR/MbOaqQwbtpZY\r\njktFcIMbdsdlISF7cnUV3mLU7hPwghEHvl4b8YgPXAXBhJdINhxsi3H1J64BWNqX\r\n9kwS5sNZzztIKyn4i40XL2rg0T36FSRez/987rCXL4PHf36xZUbBOYKMRK7HjBLd\r\nTUUnW28isKYUd0peH+bfo/wJDcJse6EcSdQzIUb9gkr7csMCAwEAATANBgkqhkiG\r\n9w0BAQsFAAOCAQEAJQNrsSGr9b/2WoO1Ptg2F1E61Oy+ZoqHTiIjMuOIm4NrY923\r\np02THrjFEMq1ahnJBK7UEtD+1WvdbmnEWL3cjWo9FDXNmi68dj1vnCpR08x04YoB\r\nZO+JpLv5oI9BWY8GQLnKK0CyWJsswoITKjbMnq2gv1b7LVFEMz2eMc1F7RmpJoxo\r\ndep8EtTFx+PBvvuXeoeTrtuJNXG/VCjtVXsa5arVylL/gpLNsFBavkIKQShzAE7U\r\n/Aui+Iri41dsGvLaxdWW8RitR0CZS1g3mBwIhXHlXABcDHMFS/J8XGawPs59C2Pm\r\nAUD9hL+nJHd6QAIap+apO6ptolRaz5Mgg2XxDw==\r\n-----END CERTIFICATE-----"
+      },
+      "optional": false
+    },
+    ".properties.networking_point_of_entry.external_ssl.ssl_ciphers": {
+      "type": "text",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": true
+    },
+    ".properties.networking_point_of_entry.haproxy.ssl_rsa_certificate": {
+      "type": "rsa_cert_credentials",
+      "configurable": true,
+      "credential": true,
+      "value": {
+        "private_key_pem": "***"
+      },
+      "optional": false
+    },
+    ".properties.networking_point_of_entry.haproxy.disable_http": {
+      "type": "boolean",
+      "configurable": true,
+      "credential": false,
+      "value": false,
+      "optional": false
+    },
+    ".properties.networking_point_of_entry.haproxy.ssl_ciphers": {
+      "type": "text",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": true
+    },
+    ".properties.networking_point_of_entry.haproxy.max_buffer_size": {
+      "type": "integer",
+      "configurable": true,
+      "credential": false,
+      "value": 16384,
+      "optional": false
+    },
+    ".properties.tcp_routing": {
+      "type": "selector",
+      "configurable": true,
+      "credential": false,
+      "value": "enable",
+      "optional": false
+    },
+    ".properties.tcp_routing.enable.reservable_ports": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": "1024-4442,4444-8080,8081-65535",
+      "optional": false
+    },
+    ".properties.route_services": {
+      "type": "selector",
+      "configurable": true,
+      "credential": false,
+      "value": "enable",
+      "optional": false
+    },
+    ".properties.route_services.enable.ignore_ssl_cert_verification": {
+      "type": "boolean",
+      "configurable": true,
+      "credential": false,
+      "value": false,
+      "optional": false
+    },
+    ".properties.container_networking": {
+      "type": "selector",
+      "configurable": true,
+      "credential": false,
+      "value": "enable",
+      "optional": false
+    },
+    ".properties.container_networking.enable.network_cidr": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": "10.255.0.0.16",
+      "optional": true
+    },
+    ".properties.container_networking.enable.mtu": {
+      "type": "integer",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": true
+    },
+    ".properties.network_policy_server_cert": {
+      "type": "rsa_cert_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "private_key_pem": "***",
+        "cert_pem": "-----BEGIN CERTIFICATE-----\nMIID1jCCAr6gAwIBAgIUeMK1axaZZuUqPvsPw21rpFezARgwDQYJKoZIhvcNAQEL\nBQAwHzELMAkGA1UEBhMCVVMxEDAOBgNVBAoMB1Bpdm90YWwwHhcNMTcwMzMwMTQy\nODE3WhcNMTkwMzMwMTQyODE3WjBTMQswCQYDVQQGEwJVUzEQMA4GA1UECgwHUGl2\nb3RhbDEyMDAGA1UEAwwpbmV0d29yay1wb2xpY3ktc2VydmVyLnNlcnZpY2UuY2Yu\naW50ZXJuYWwwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDQtngZUW5M\na/n7YvQZ3Ma+rKvql66gEBqFpe2ERjCyomnqmJcF/4vamxS0QROajQ5YIvpYi/wm\nZSUZmnHYDTgWqD+Jy0ohUB7qM8MiVAJyg1LUl2y1/2ZsKpTguAItmyAS2xfsdoJm\nFuvUx+ajg8qAhBsgsh7RZfBNTSMoAM6smHmcQHo/KCXYj8JqHBvKweRiBzrpxqw0\n7waVqFhPr1HSyakP+Sd3Bvxpr4LDrk/g91bYRge/H8BRpi6IQ47wR+8zAtXYRNJX\nDoABWJ30rQ1PxhTKrj57thk8z5FdmUojwnD3o1adkoKl2C//LbBuHWYiY9pWnOxC\nLPThhBanp3V3AgMBAAGjgdUwgdIwDgYDVR0PAQH/BAQDAgeAMB0GA1UdDgQWBBRz\ng5R+aV1TqOZGGIa65qX2pIecsDAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUH\nAwEwHwYDVR0jBBgwFoAU7dLtUabmomjM68b7eVeGYq/v3IUwYQYDVR0RBFowWIIp\nbmV0d29yay1wb2xpY3ktc2VydmVyLnNlcnZpY2UuY2YuaW50ZXJuYWyCKyoubmV0\nd29yay1wb2xpY3ktc2VydmVyLnNlcnZpY2UuY2YuaW50ZXJuYWwwDQYJKoZIhvcN\nAQELBQADggEBADk/uNfZqPVWdLsuHg4A3VFlpKgn1FpOvdyUbgIo/sOM30FhAYJ1\npwhazsofuujhVk22XLE9iNHE/EbfVVdprLdJIMjUbCEnc8p3zfw+BmWNRlK0K8BG\n3ZJmPtpqqLoy2/J3Q7JUxdyq/Z+AhvlSTalfQpJvJOsbpbXTALQwd0Ga3sWTHu+1\nDDZoU+RZV4dEMaSnsh9gpF13HhHHQ/f91LSIWBgDdrYjRqs5ZEYodaQEQWemb7z9\n+SwRj2/ZsRzHyYsR0vfpECYQsx9Y6kQ0Jjra3gJ/lxgeuYTjmv86oaTKrQFSYCk7\nHKvEIuGW8zbnvMTzG3+UZU5+zgYblncMsAQ=\n-----END CERTIFICATE-----\n"
+      },
+      "optional": false
+    },
+    ".properties.network_policy_agent_cert": {
+      "type": "rsa_cert_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "private_key_pem": "***",
+        "cert_pem": "-----BEGIN CERTIFICATE-----\nMIIDYTCCAkmgAwIBAgIUeelDoL7MSm7NQqWxeBUrIVWPX8UwDQYJKoZIhvcNAQEL\nBQAwHzELMAkGA1UEBhMCVVMxEDAOBgNVBAoMB1Bpdm90YWwwHhcNMTcwMzMwMTQy\nODE3WhcNMTkwMzMwMTQyODE3WjBDMQswCQYDVQQGEwJVUzEQMA4GA1UECgwHUGl2\nb3RhbDEiMCAGA1UEAwwZbmV0d29ya19wb2xpY3lfYWdlbnRfY2VydDCCASIwDQYJ\nKoZIhvcNAQEBBQADggEPADCCAQoCggEBAL4FYF3oxbRkmEOn5FCzodIP591ZsDZc\n8KdTshReT6Dk+hjlVCbU5UPD4jJhUPNhaW+PIAbmgkB8pt0NHtyahxuk+fOqxV+A\nrnHwbru+Rj0u5MW0gbRQLwnAbFMjZMcxLTTxpza4/+0+As5sM99VedI7f5NPhSib\nNXkySR6uwF61O/xsyTmEfFzyjdgi7YjjBrxwj0WEXIp4zKEIQQd8ezgguwIZIMFX\nYkh87vlw/hFxnWtyJEA+61pw/8kRl/ZxBjHUfv+Wo1jf8ub8AP3qkWuQ2RxlwtAC\ngrTgDCg+Z88qq5ktRog+MLj4bfwt1bJ5nWOD4wPUnFNf/Kg5mCNZeAECAwEAAaNx\nMG8wDgYDVR0PAQH/BAQDAgeAMB0GA1UdDgQWBBQ8TO3gzN7GY57n2iwBJeAGtFFo\nJjAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwEwHwYDVR0jBBgwFoAU7dLt\nUabmomjM68b7eVeGYq/v3IUwDQYJKoZIhvcNAQELBQADggEBAHXADY3g475I3+sy\nOuiC2Xd+DIuZ8buepGJU2wVSE9amv7LBll5F511h7gf0On31K7NkqNgHaLsIAMkS\nAU/oxbdc64Et6B6/zaJYdxJqCsHK7fe9rk5Q3QiPchRhxS1lAUbtPh7ZcQyEAzz0\nnRoVBqC3rL+WfAVHHLXKY3ZngEUZ60kXhBfnTziPc0v7ofkFhkLPfLO3rIdIlT8U\npSLjxgKyC3vbFWB+U9jGhmOZ4N99KY6EPgEgw20l8o40+70xcssTxHT5ucLml7AA\n0DXU3bYUutabq2w3pFaqQtb866/WoNH3+MGkB362F4NliACwVymvRhz4yzkGTrmE\nWiPmnro=\n-----END CERTIFICATE-----\n"
+      },
+      "optional": false
+    },
+    ".properties.security_acknowledgement": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": "X",
+      "optional": false
+    },
+    ".properties.cf_dial_timeout_in_seconds": {
+      "type": "integer",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": true
+    },
+    ".properties.smoke_tests": {
+      "type": "selector",
+      "configurable": true,
+      "credential": false,
+      "value": "on_demand",
+      "optional": false
+    },
+    ".properties.smoke_tests.specified.org_name": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": false
+    },
+    ".properties.smoke_tests.specified.space_name": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": false
+    },
+    ".properties.smoke_tests.specified.apps_domain": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": false
+    },
+    ".properties.smtp_from": {
+      "type": "email",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": true
+    },
+    ".properties.smtp_address": {
+      "type": "network_address",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": true
+    },
+    ".properties.smtp_port": {
+      "type": "port",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": true
+    },
+    ".properties.smtp_credentials": {
+      "type": "simple_credentials",
+      "configurable": true,
+      "credential": true,
+      "value": {
+        "password": "***"
+      },
+      "optional": true
+    },
+    ".properties.smtp_enable_starttls_auto": {
+      "type": "boolean",
+      "configurable": true,
+      "credential": false,
+      "value": false,
+      "optional": false
+    },
+    ".properties.smtp_auth_mechanism": {
+      "type": "dropdown_select",
+      "configurable": true,
+      "credential": false,
+      "value": "plain",
+      "optional": false,
+      "options": [
+        {
+          "label": "None",
+          "value": "none"
+        },
+        {
+          "label": "Plain",
+          "value": "plain"
+        },
+        {
+          "label": "CRAMMD5",
+          "value": "cram-md5"
+        }
+      ]
+    },
+    ".properties.smtp_crammd5_secret": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": true
+    },
+    ".properties.system_blobstore": {
+      "type": "selector",
+      "configurable": true,
+      "credential": false,
+      "value": "external_azure",
+      "optional": false
+    },
+    ".properties.system_blobstore.external.endpoint": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": "https://s3.amazonaws.com",
+      "optional": false
+    },
+    ".properties.system_blobstore.external.buildpacks_bucket": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": false
+    },
+    ".properties.system_blobstore.external.droplets_bucket": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": false
+    },
+    ".properties.system_blobstore.external.packages_bucket": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": false
+    },
+    ".properties.system_blobstore.external.resources_bucket": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": false
+    },
+    ".properties.system_blobstore.external.access_key": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": false
+    },
+    ".properties.system_blobstore.external.secret_key": {
+      "type": "secret",
+      "configurable": true,
+      "credential": true,
+      "value": {
+        "secret": "***"
+      },
+      "optional": false
+    },
+    ".properties.system_blobstore.external.signature_version": {
+      "type": "dropdown_select",
+      "configurable": true,
+      "credential": false,
+      "value": 2,
+      "optional": false,
+      "options": [
+        {
+          "label": "V2 Signature",
+          "value": 2
+        },
+        {
+          "label": "V4 Signature",
+          "value": 4
+        }
+      ]
+    },
+    ".properties.system_blobstore.external.region": {
+      "type": "dropdown_select",
+      "configurable": true,
+      "credential": false,
+      "value": "''",
+      "optional": false,
+      "options": [
+        {
+          "label": "V2 Signature - N/A",
+          "value": "''"
+        },
+        {
+          "label": "US East (N. Virginia)",
+          "value": "us-east-1"
+        },
+        {
+          "label": "US West (N. California)",
+          "value": "us-west-1"
+        },
+        {
+          "label": "US West (Oregon)",
+          "value": "us-west-2"
+        },
+        {
+          "label": "EU (Ireland)",
+          "value": "eu-west-1"
+        },
+        {
+          "label": "Asia Pacific (Singapore)",
+          "value": "ap-southeast-1"
+        },
+        {
+          "label": "Asia Pacific (Tokyo)",
+          "value": "ap-northeast-1"
+        },
+        {
+          "label": "Asia Pacific (Sydney)",
+          "value": "ap-southeast-2"
+        },
+        {
+          "label": "South America (São Paulo)",
+          "value": "sa-east-1"
+        },
+        {
+          "label": "V4 Signature Only - GovCloud Region (US)",
+          "value": "us-gov-west-1"
+        },
+        {
+          "label": "V4 Signature Only - China Region (Beijing)",
+          "value": "cn-north-1"
+        },
+        {
+          "label": "V4 Signature Only - EU Region (Frankfurt)",
+          "value": "eu-central-1"
+        },
+        {
+          "label": "V4 Signature Only - Asia Pacific (Seoul)",
+          "value": "ap-northeast-2"
+        }
+      ]
+    },
+    ".properties.system_blobstore.external.encryption": {
+      "type": "boolean",
+      "configurable": true,
+      "credential": false,
+      "value": false,
+      "optional": false
+    },
+    ".properties.system_blobstore.external_gcs.buildpacks_bucket": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": false
+    },
+    ".properties.system_blobstore.external_gcs.droplets_bucket": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": false
+    },
+    ".properties.system_blobstore.external_gcs.packages_bucket": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": false
+    },
+    ".properties.system_blobstore.external_gcs.resources_bucket": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": false
+    },
+    ".properties.system_blobstore.external_gcs.access_key": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": false
+    },
+    ".properties.system_blobstore.external_gcs.secret_key": {
+      "type": "secret",
+      "configurable": true,
+      "credential": true,
+      "value": {
+        "secret": "***"
+      },
+      "optional": false
+    },
+    ".properties.system_blobstore.external_azure.buildpacks_container": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": "buildpacks",
+      "optional": false
+    },
+    ".properties.system_blobstore.external_azure.droplets_container": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": "droplets",
+      "optional": false
+    },
+    ".properties.system_blobstore.external_azure.packages_container": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": "packages",
+      "optional": false
+    },
+    ".properties.system_blobstore.external_azure.resources_container": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": "resources",
+      "optional": false
+    },
+    ".properties.system_blobstore.external_azure.account_name": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": "pcfcrdantio",
+      "optional": false
+    },
+    ".properties.system_blobstore.external_azure.access_key": {
+      "type": "secret",
+      "configurable": true,
+      "credential": true,
+      "value": {
+        "secret": "***"
+      },
+      "optional": false
+    },
+    ".properties.account_database": {
+      "type": "string",
+      "configurable": false,
+      "credential": false,
+      "value": "account",
+      "optional": false
+    },
+    ".properties.app_usage_service_database": {
+      "type": "string",
+      "configurable": false,
+      "credential": false,
+      "value": "app_usage_service",
+      "optional": false
+    },
+    ".properties.autoscale_database": {
+      "type": "string",
+      "configurable": false,
+      "credential": false,
+      "value": "autoscale",
+      "optional": false
+    },
+    ".properties.ccdb_database": {
+      "type": "string",
+      "configurable": false,
+      "credential": false,
+      "value": "ccdb",
+      "optional": false
+    },
+    ".properties.diego_database": {
+      "type": "string",
+      "configurable": false,
+      "credential": false,
+      "value": "diego",
+      "optional": false
+    },
+    ".properties.networkpolicyserver_database": {
+      "type": "string",
+      "configurable": false,
+      "credential": false,
+      "value": "networkpolicyserver",
+      "optional": false
+    },
+    ".properties.notifications_database": {
+      "type": "string",
+      "configurable": false,
+      "credential": false,
+      "value": "notifications",
+      "optional": false
+    },
+    ".properties.routing_database": {
+      "type": "string",
+      "configurable": false,
+      "credential": false,
+      "value": "routing",
+      "optional": false
+    },
+    ".properties.uaa_database": {
+      "type": "string",
+      "configurable": false,
+      "credential": false,
+      "value": "uaa",
+      "optional": false
+    },
+    ".properties.nfsvolume_database": {
+      "type": "string",
+      "configurable": false,
+      "credential": false,
+      "value": "nfsvolume",
+      "optional": false
+    },
+    ".properties.system_database": {
+      "type": "selector",
+      "configurable": true,
+      "credential": false,
+      "value": "internal_mysql",
+      "optional": false
+    },
+    ".properties.system_database.external.host": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": false
+    },
+    ".properties.system_database.external.port": {
+      "type": "port",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": false
+    },
+    ".properties.system_database.external.account_username": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": false
+    },
+    ".properties.system_database.external.account_password": {
+      "type": "secret",
+      "configurable": true,
+      "credential": true,
+      "value": {
+        "secret": "***"
+      },
+      "optional": false
+    },
+    ".properties.system_database.external.app_usage_service_username": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": false
+    },
+    ".properties.system_database.external.app_usage_service_password": {
+      "type": "secret",
+      "configurable": true,
+      "credential": true,
+      "value": {
+        "secret": "***"
+      },
+      "optional": false
+    },
+    ".properties.system_database.external.autoscale_username": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": false
+    },
+    ".properties.system_database.external.autoscale_password": {
+      "type": "secret",
+      "configurable": true,
+      "credential": true,
+      "value": {
+        "secret": "***"
+      },
+      "optional": false
+    },
+    ".properties.system_database.external.ccdb_username": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": false
+    },
+    ".properties.system_database.external.ccdb_password": {
+      "type": "secret",
+      "configurable": true,
+      "credential": true,
+      "value": {
+        "secret": "***"
+      },
+      "optional": false
+    },
+    ".properties.system_database.external.diego_username": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": false
+    },
+    ".properties.system_database.external.diego_password": {
+      "type": "secret",
+      "configurable": true,
+      "credential": true,
+      "value": {
+        "secret": "***"
+      },
+      "optional": false
+    },
+    ".properties.system_database.external.networkpolicyserver_username": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": false
+    },
+    ".properties.system_database.external.networkpolicyserver_password": {
+      "type": "secret",
+      "configurable": true,
+      "credential": true,
+      "value": {
+        "secret": "***"
+      },
+      "optional": false
+    },
+    ".properties.system_database.external.nfsvolume_username": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": false
+    },
+    ".properties.system_database.external.nfsvolume_password": {
+      "type": "secret",
+      "configurable": true,
+      "credential": true,
+      "value": {
+        "secret": "***"
+      },
+      "optional": false
+    },
+    ".properties.system_database.external.notifications_username": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": false
+    },
+    ".properties.system_database.external.notifications_password": {
+      "type": "secret",
+      "configurable": true,
+      "credential": true,
+      "value": {
+        "secret": "***"
+      },
+      "optional": false
+    },
+    ".properties.system_database.external.routing_username": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": false
+    },
+    ".properties.system_database.external.routing_password": {
+      "type": "secret",
+      "configurable": true,
+      "credential": true,
+      "value": {
+        "secret": "***"
+      },
+      "optional": false
+    },
+    ".properties.system_database.external.uaa_username": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": false
+    },
+    ".properties.system_database.external.uaa_password": {
+      "type": "secret",
+      "configurable": true,
+      "credential": true,
+      "value": {
+        "secret": "***"
+      },
+      "optional": false
+    },
+    ".properties.mysql_backups": {
+      "type": "selector",
+      "configurable": true,
+      "credential": false,
+      "value": "disable",
+      "optional": false
+    },
+    ".properties.mysql_backups.s3.endpoint_url": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": "https://s3.amazonaws.com",
+      "optional": false
+    },
+    ".properties.mysql_backups.s3.bucket_name": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": false
+    },
+    ".properties.mysql_backups.s3.bucket_path": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": false
+    },
+    ".properties.mysql_backups.s3.access_key_id": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": false
+    },
+    ".properties.mysql_backups.s3.secret_access_key": {
+      "type": "secret",
+      "configurable": true,
+      "credential": true,
+      "value": {
+        "secret": "***"
+      },
+      "optional": false
+    },
+    ".properties.mysql_backups.s3.cron_schedule": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": false
+    },
+    ".properties.mysql_backups.s3.backup_all_masters": {
+      "type": "boolean",
+      "configurable": true,
+      "credential": false,
+      "value": true,
+      "optional": false
+    },
+    ".properties.mysql_backups.scp.server": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": false
+    },
+    ".properties.mysql_backups.scp.port": {
+      "type": "port",
+      "configurable": true,
+      "credential": false,
+      "value": 22,
+      "optional": false
+    },
+    ".properties.mysql_backups.scp.user": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": false
+    },
+    ".properties.mysql_backups.scp.key": {
+      "type": "text",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": false
+    },
+    ".properties.mysql_backups.scp.destination": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": false
+    },
+    ".properties.mysql_backups.scp.cron_schedule": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": false
+    },
+    ".properties.mysql_backups.scp.backup_all_masters": {
+      "type": "boolean",
+      "configurable": true,
+      "credential": false,
+      "value": true,
+      "optional": false
+    },
+    ".properties.mysql_activity_logging": {
+      "type": "selector",
+      "configurable": true,
+      "credential": false,
+      "value": "enable",
+      "optional": false
+    },
+    ".properties.mysql_activity_logging.enable.audit_logging_events": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": "connect,query",
+      "optional": false
+    },
+    ".properties.uaa": {
+      "type": "selector",
+      "configurable": true,
+      "credential": false,
+      "value": "internal",
+      "optional": false
+    },
+    ".properties.uaa.internal.password_min_length": {
+      "type": "integer",
+      "configurable": true,
+      "credential": false,
+      "value": 0,
+      "optional": false
+    },
+    ".properties.uaa.internal.password_min_uppercase": {
+      "type": "integer",
+      "configurable": true,
+      "credential": false,
+      "value": 0,
+      "optional": false
+    },
+    ".properties.uaa.internal.password_min_lowercase": {
+      "type": "integer",
+      "configurable": true,
+      "credential": false,
+      "value": 0,
+      "optional": false
+    },
+    ".properties.uaa.internal.password_min_numeric": {
+      "type": "integer",
+      "configurable": true,
+      "credential": false,
+      "value": 0,
+      "optional": false
+    },
+    ".properties.uaa.internal.password_min_special": {
+      "type": "integer",
+      "configurable": true,
+      "credential": false,
+      "value": 0,
+      "optional": false
+    },
+    ".properties.uaa.internal.password_expires_after_months": {
+      "type": "integer",
+      "configurable": true,
+      "credential": false,
+      "value": 0,
+      "optional": false
+    },
+    ".properties.uaa.internal.password_max_retry": {
+      "type": "integer",
+      "configurable": true,
+      "credential": false,
+      "value": 5,
+      "optional": false
+    },
+    ".properties.uaa.saml.sso_name": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": false
+    },
+    ".properties.uaa.saml.display_name": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": false
+    },
+    ".properties.uaa.saml.sso_url": {
+      "type": "http_url",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": true
+    },
+    ".properties.uaa.saml.name_id_format": {
+      "type": "dropdown_select",
+      "configurable": true,
+      "credential": false,
+      "value": "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
+      "optional": false,
+      "options": [
+        {
+          "label": "Email Address",
+          "value": "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"
+        },
+        {
+          "label": "Unspecified",
+          "value": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"
+        },
+        {
+          "label": "Persistent",
+          "value": "urn:oasis:names:tc:SAML:2.0:nameid-format:persistent"
+        }
+      ]
+    },
+    ".properties.uaa.saml.sso_xml": {
+      "type": "text",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": true
+    },
+    ".properties.uaa.saml.sign_auth_requests": {
+      "type": "boolean",
+      "configurable": true,
+      "credential": false,
+      "value": true,
+      "optional": false
+    },
+    ".properties.uaa.saml.require_signed_assertions": {
+      "type": "boolean",
+      "configurable": true,
+      "credential": false,
+      "value": false,
+      "optional": false
+    },
+    ".properties.uaa.saml.email_domains": {
+      "type": "string_list",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": true
+    },
+    ".properties.uaa.saml.first_name_attribute": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": true
+    },
+    ".properties.uaa.saml.last_name_attribute": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": true
+    },
+    ".properties.uaa.saml.email_attribute": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": true
+    },
+    ".properties.uaa.saml.external_groups_attribute": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": true
+    },
+    ".properties.uaa.saml.signature_algorithm": {
+      "type": "dropdown_select",
+      "configurable": true,
+      "credential": false,
+      "value": "SHA1",
+      "optional": false,
+      "options": [
+        {
+          "label": "SHA1",
+          "value": "SHA1"
+        },
+        {
+          "label": "SHA256",
+          "value": "SHA256"
+        },
+        {
+          "label": "SHA512",
+          "value": "SHA512"
+        }
+      ]
+    },
+    ".properties.uaa.ldap.url": {
+      "type": "ldap_url",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": false
+    },
+    ".properties.uaa.ldap.credentials": {
+      "type": "simple_credentials",
+      "configurable": true,
+      "credential": true,
+      "value": {
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".properties.uaa.ldap.search_base": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": false
+    },
+    ".properties.uaa.ldap.search_filter": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": "cn={0}",
+      "optional": false
+    },
+    ".properties.uaa.ldap.group_search_base": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": true
+    },
+    ".properties.uaa.ldap.group_search_filter": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": "member={0}",
+      "optional": false
+    },
+    ".properties.uaa.ldap.server_ssl_cert": {
+      "type": "text",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": true
+    },
+    ".properties.uaa.ldap.server_ssl_cert_alias": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": true
+    },
+    ".properties.uaa.ldap.mail_attribute_name": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": "mail",
+      "optional": false
+    },
+    ".properties.uaa.ldap.email_domains": {
+      "type": "string_list",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": true
+    },
+    ".properties.uaa.ldap.first_name_attribute": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": true
+    },
+    ".properties.uaa.ldap.last_name_attribute": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": true
+    },
+    ".properties.uaa.ldap.ldap_referrals": {
+      "type": "dropdown_select",
+      "configurable": true,
+      "credential": false,
+      "value": "follow",
+      "optional": false,
+      "options": [
+        {
+          "label": "Automatically follow any referrals",
+          "value": "follow"
+        },
+        {
+          "label": "Ignore referrals and return partial result",
+          "value": "ignore"
+        },
+        {
+          "label": "Throw exception for each referral and abort authentication",
+          "value": "throw"
+        }
+      ]
+    },
+    ".nats.credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "nats",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".nfs_server.blobstore_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "blobstore",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".nfs_server.blobstore_secret": {
+      "type": "secret",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "secret": "***"
+      },
+      "optional": false
+    },
+    ".nfs_server.blobstore_cert": {
+      "type": "rsa_cert_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "private_key_pem": "***",
+        "cert_pem": "-----BEGIN CERTIFICATE-----\nMIIDkjCCAnqgAwIBAgIVAJ2UDDsybCgXFowJI+0fsHTAU3DTMA0GCSqGSIb3DQEB\nCwUAMB8xCzAJBgNVBAYTAlVTMRAwDgYDVQQKDAdQaXZvdGFsMB4XDTE3MDMzMDE0\nMjgxOFoXDTE5MDMzMDE0MjgxOFowRzELMAkGA1UEBhMCVVMxEDAOBgNVBAoMB1Bp\ndm90YWwxJjAkBgNVBAMMHWJsb2JzdG9yZS5zZXJ2aWNlLmNmLmludGVybmFsMIIB\nIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA+lMXXqo6ZtUAybilOlekkmgv\nRTKXK/3mGJKVles8pOqEkHGOFSp146co3x97RtZLiYRUdYx7xlX8/rzJPLJabG3s\n3rtATjZ31P9pMGRNROklqhbjE4vKDtlOX9GnqW2CEtAVGWZ091p2Vj3DeE4xc1N9\nHTHivzTpfqr6gHWfKMIQJtjeYjusvI7Slq61EGK8SkHFGGOQAT7gPUwIiX0dMuop\nNRDSOA0mYEkqxpSq7qVp10UhKIw0i0X7oY/8jM0M+U9S7urTD7NSspQsQg5YQicw\nJFBLOSZd469M+cAOWyBhSeW/xhLGKyeIEIDyuZmcU39oeFssl9k90qD+JjWKkwID\nAQABo4GcMIGZMA4GA1UdDwEB/wQEAwIHgDAdBgNVHQ4EFgQUsgaf/tuB2YBeAPLy\npqfpUq/QWBcwHQYDVR0lBBYwFAYIKwYBBQUHAwIGCCsGAQUFBwMBMB8GA1UdIwQY\nMBaAFO3S7VGm5qJozOvG+3lXhmKv79yFMCgGA1UdEQQhMB+CHWJsb2JzdG9yZS5z\nZXJ2aWNlLmNmLmludGVybmFsMA0GCSqGSIb3DQEBCwUAA4IBAQAE02Irbdkvp6Js\n4n4X+u4I6Y/sCaVDWFDzmfJSugQeUh1fJwACExoSJo26tY45IbDkt3XeQaXxahD/\n4Sg3oLUyXCM6KR3p/7e/Mv0OgCO1byQ8JNktd62voIQJes0w0I6bMWMYpvUdhUer\n6aG8HgvtJHy7QBDwPFGJ/SNkmBJonFrFSWgXSdu9N9x7wAV0In05HXgDHdyahHRd\nMWBNQr50oET2Izn/csOknRtv/JtZ74348BDySc1UorBe96Hk08KQ91oPKFqKe0Gn\nz0kHXdfn464Ruhwvyy4sxXJEKFa+1UBuEPDBa39v5C1qHN5nY0AwSd069ZjsJEV5\nq6Ycojc8\n-----END CERTIFICATE-----\n"
+      },
+      "optional": false
+    },
+    ".nfs_server.blobstore_internal_access_rules": {
+      "type": "string_list",
+      "configurable": true,
+      "credential": false,
+      "value": "allow 10.0.0.0/8;,allow 172.16.0.0/12;,allow 192.168.0.0/16;",
+      "optional": false
+    },
+    ".mysql_proxy.static_ips": {
+      "type": "ip_ranges",
+      "configurable": true,
+      "credential": false,
+      "value": "10.0.0.253,10.0.0.252",
+      "optional": true
+    },
+    ".mysql_proxy.service_hostname": {
+      "type": "network_address",
+      "configurable": true,
+      "credential": false,
+      "value": "mysql.azure.crdant.io",
+      "optional": true
+    },
+    ".mysql_proxy.dashboard_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "admin",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".mysql_proxy.startup_delay": {
+      "type": "integer",
+      "configurable": true,
+      "credential": false,
+      "value": 0,
+      "optional": false
+    },
+    ".mysql_proxy.shutdown_delay": {
+      "type": "integer",
+      "configurable": true,
+      "credential": false,
+      "value": 0,
+      "optional": false
+    },
+    ".mysql.mysql_admin_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "root",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".mysql.mysql_bootstrap_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "pgm6ZWJr-RGJlBM__46p5FWFekeMi0fO",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".mysql.mysql_backup_server_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "K0ur0-Bbc84egmB8eNpXlHpizDvWJpbN",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".mysql.app_usage_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "app_usage",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".mysql.notifications_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "ULcsIdK4rto-BsyQxRra0b8pnZ4vAn2E",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".mysql.autoscale_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "W_IFvkRJ6fioC9unSIVvc3Lm9eRNpL0S",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".mysql.ccdb_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "L60GejTd-WaQ1_-7CDIybuuHrh-kUpJ4",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".mysql.uaadb_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "aVz0Ix-8zvxnZopA8a31Cm9g3ggE9Tzs",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".mysql.monitordb_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "h-W4AmJDdLGijcnu18IoE4vOpEdevpS2",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".mysql.diegodb_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "A3V7_oO3gkttFrlGfj72HOyt0xxGOYGJ",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".mysql.routingdb_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "lrENUWa26_CmmKbddZuYbuSGDAkXaBuK",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".mysql.networkpolicyserverdb_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "RejKnzl5Ep1skEVfL-05NJEQXHsyGz2J",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".mysql.cluster_health_user": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "cluster-health-logger",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".mysql.galera_sidecar_user": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "galera-healthcheck",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".mysql.pivotal_account_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "i0hxFUwrpjZYAnMYX0kjHqq4CGYO1_OY",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".mysql.nfsvolume_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "C4ePFRjsG5PY7q-5zjbsyFbD0_eOdW1t",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".mysql.diag_agent_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "M4wSeJgvVhC5qSDD_a79d5wpa8Z1nI-U",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".backup-prepare.backup_encryption_key": {
+      "type": "secret",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "secret": "***"
+      },
+      "optional": false
+    },
+    ".ccdb.credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "admin",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".diego_database.bbs_encryption_passphrase": {
+      "type": "secret",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "secret": "***"
+      },
+      "optional": false
+    },
+    ".uaadb.credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "root",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".uaa.admin_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "admin",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".uaa.push_apps_manager_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "push_apps_manager",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".uaa.run_smoke_tests_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "smoke_tests",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".uaa.system_services_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "system_services",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".uaa.system_verification_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "system_verification",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".uaa.system_passwords_client_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "system_passwords",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".uaa.login_client_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "login",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".uaa.identity_client_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "identity",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".uaa.gorouter_client_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "gorouter",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".uaa.doppler_client_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "doppler",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".uaa.opentsdb_nozzle_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "opentsdb-firehose-nozzle",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".uaa.apps_manager_client_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "portal",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".uaa.usage_service_client_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "usage_service",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".uaa.invitations_client_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "invitations",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".uaa.autoscale_client_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "autoscaling_service",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".uaa.cc_service_dashboards_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "cc-service-dashboards",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".uaa.cc_client_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "cloud_controller",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".uaa.admin_client_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "admin",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".uaa.jwt_signing_key_credentials": {
+      "type": "rsa_pkey_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "private_key_pem": "***"
+      },
+      "optional": false
+    },
+    ".uaa.notifications_client_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "notifications",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".uaa.notifications_template_client_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "notifications_template",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".uaa.ssh_proxy_client_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "ssh_proxy",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".uaa.notifications_ui_client_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "notifications_ui_client",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".uaa.cloud_controller_username_lookup_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "cloud_controller_username_lookup",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".uaa.cc_routing_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "cc_routing",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".uaa.apps_metrics_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "apps_metrics",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".uaa.apps_metrics_processing_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "apps_metrics_processing",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".uaa.tcp_router_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "tcp_router",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".uaa.tcp_emitter_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "tcp_emitter",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".uaa.service_provider_key_credentials": {
+      "type": "rsa_cert_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "private_key_pem": "***",
+        "cert_pem": "-----BEGIN CERTIFICATE-----\nMIIDaTCCAlGgAwIBAgIVAJUj7Gvq2WO7h+dEXAKb8VnwRG3dMA0GCSqGSIb3DQEB\nCwUAMB8xCzAJBgNVBAYTAlVTMRAwDgYDVQQKDAdQaXZvdGFsMB4XDTE3MDMzMDE0\nMjgxOFoXDTE5MDMzMDE0MjgxOFowSjELMAkGA1UEBhMCVVMxEDAOBgNVBAoMB1Bp\ndm90YWwxKTAnBgNVBAMMIHNlcnZpY2VfcHJvdmlkZXJfa2V5X2NyZWRlbnRpYWxz\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmc4M3ou7EhXo9Iew9ooV\nYXoIvNX1qK+gevfY4iAi/D1SHtW+th9d0ECr+fBDBXx/INq4ptPw1ElOHXJ8d/tz\n22oPB5GQX2b7O21FpOy52RgmUe/Yet92PwfVGdBKO4gCzkocD6lAKAKymMPFgHAF\nd3GWN5CQ8W0RRTDBZY/hOBoSkOmSH6XBpVWbjNbVKJuS1Dwzt0h3aA4RfmPCcOyu\nlf3ddXmBrY7hsDqPzzDUW4T7F5KiFL2LN5PnvYuWvMesoFQTD4zYVKsPB4IHzf/C\nxQfRehoWAANt6f9Veiuu3+cec2n11NaHeSlc3+NzGDNNr1F1rwV5053B6OoOj7X8\nXQIDAQABo3EwbzAOBgNVHQ8BAf8EBAMCB4AwHQYDVR0OBBYEFEnpnuGyHaC0/eMq\nGXZf52XE9AIfMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDATAfBgNVHSME\nGDAWgBTt0u1RpuaiaMzrxvt5V4Zir+/chTANBgkqhkiG9w0BAQsFAAOCAQEASk05\nV4btAVHYYARrGFVz6DQSVXfBvFAqvtN0dONhTB9PdXoymItcT8owtu0yQZBYBqdq\nSEt8dIwvH3WDRGZtF0u3ocPydJFZG2kW/I2o39q7b4BMQ334r6Y+xfjcMANHtSgj\njzNj5+WxQ7SRJF5nocIe/WBlO1dFThv0XT21iGDyFJ/kxNP+AA/QkcLObKH7jYXx\n2WMhSW3B9uFFwDgGwj3sxbSC7TYQzfsQ5ahtD95HSi0dK3Lk7QUBjHaecsjzzRsl\n42BV9KL6Jt8sQ2/amhE2HsIyhcMs48u8A63kAk07mixnW47xkoUmHWzZQNfADh4X\n9pdAsSSEdXPbcQ8hjA==\n-----END CERTIFICATE-----\n"
+      },
+      "optional": false
+    },
+    ".uaa.apps_manager_access_token_lifetime": {
+      "type": "integer",
+      "configurable": true,
+      "credential": false,
+      "value": 1209600,
+      "optional": false
+    },
+    ".uaa.apps_manager_refresh_token_lifetime": {
+      "type": "integer",
+      "configurable": true,
+      "credential": false,
+      "value": 1209600,
+      "optional": false
+    },
+    ".uaa.cf_cli_access_token_lifetime": {
+      "type": "integer",
+      "configurable": true,
+      "credential": false,
+      "value": 7200,
+      "optional": false
+    },
+    ".uaa.cf_cli_refresh_token_lifetime": {
+      "type": "integer",
+      "configurable": true,
+      "credential": false,
+      "value": 1209600,
+      "optional": false
+    },
+    ".uaa.ssl_credentials": {
+      "type": "rsa_cert_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "private_key_pem": "***",
+        "cert_pem": "-----BEGIN CERTIFICATE-----\nMIIDhjCCAm6gAwIBAgIVAKYiZcXSVaaU4xTGazYvMoFmNPEXMA0GCSqGSIb3DQEB\nCwUAMB8xCzAJBgNVBAYTAlVTMRAwDgYDVQQKDAdQaXZvdGFsMB4XDTE3MDMzMDE0\nMjgxOFoXDTE5MDMzMDE0MjgxOFowQTELMAkGA1UEBhMCVVMxEDAOBgNVBAoMB1Bp\ndm90YWwxIDAeBgNVBAMMF3VhYS5zZXJ2aWNlLmNmLmludGVybmFsMIIBIjANBgkq\nhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqYeKc6f9aJ1K/UtqLgYE2h+4595rG650\nngTHNcPXT3V8tt5MH2hCnZ9vX8qbErfO4bIHXux86fB9lBMO2GprEmgLiJLuUwWV\n+o/oDw8W/nLlxDF8TZvoDxw1OXa2BtHtljHATlFpQgFSAnGAU0E3iU5//Qovd+7g\nTG/mmzOxXygjsoifF5RIXhYv1DFdivXSZDm/aIcFlOFk4CWbzRKjtFBLOdco4sJO\nfV6g3BKlKqreBwy/wpgKo8ztw/maWIHYGFX89ea325xTE7OwLMHPuD7ZI5CPBHpI\n/JJkyiRLlcUjMhYnMILKHO89H47RCxaE74gl7wdLpTRuJu4TkZyYkwIDAQABo4GW\nMIGTMA4GA1UdDwEB/wQEAwIHgDAdBgNVHQ4EFgQUudpk3ZJ9yA5jC/NmYPaYx68P\nh0kwHQYDVR0lBBYwFAYIKwYBBQUHAwIGCCsGAQUFBwMBMB8GA1UdIwQYMBaAFO3S\n7VGm5qJozOvG+3lXhmKv79yFMCIGA1UdEQQbMBmCF3VhYS5zZXJ2aWNlLmNmLmlu\ndGVybmFsMA0GCSqGSIb3DQEBCwUAA4IBAQBu/mlfwxa219Sfa0opJarRDXOalRq4\nSS+h12773e+uZmY9lwM5t0NiMSsx8DJBm0DfiTiD9ln1Q6RBQfmPD8vmivL3rjID\nSbny1u51X+CI3cqrUWJLKSouOr0Wn8b8DwGHaLz1CNZpaU85LKhW8i/IU2l39rre\nOpIOjDrghE4AOk/DUrD9uYB0sEaaehbOufp/fbm++sX9NHq2+eukBWmTL3NFqjme\nKGpx2Hfz8j7WVkGWp/FXqqhiNTtn7hb+8KOZnjzfwh0nbCfS2h+c0UE70OYdBpGJ\nhvw67tElPm7apK0q7v9qVnESNyWumLENzsAsocSZKayB05DAYwERWf5W\n-----END CERTIFICATE-----\n"
+      },
+      "optional": false
+    },
+    ".uaa.pivotal_account_client_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "pivotal_account",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".uaa.concourse_atc_client_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "concourse_atc",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".uaa.logsearch_firehose_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "logsearch-firehose",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".uaa.splunk_firehose_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "splunk-firehose",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".uaa.greenplum_broker_client_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "greenplum_broker",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".uaa.greenplum_router_admin_client_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "greenplum_router_admin",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".uaa.greenplum_router_client_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "greenplum_router",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".uaa.cloudcache_broker_client_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "cloudcache_broker",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".uaa.customize_username_label": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": "Email",
+      "optional": false
+    },
+    ".uaa.customize_password_label": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": "Password",
+      "optional": false
+    },
+    ".uaa.push_notifications_dashboard_client": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "push-notifications-dashboard",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".uaa.push_api_client": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "push-api-client",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".uaa.network_policy_server_client": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "Ho4-JWO0SZKJnhhIy7XTWDH6wA8r_meo",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".uaa.proxy_ips_regex": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": "10\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}|192\\.168\\.\\d{1,3}\\.\\d{1,3}|169\\.254\\.\\d{1,3}\\.\\d{1,3}|127\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}|172\\.1[6-9]{1}\\.\\d{1,3}\\.\\d{1,3}|172\\.2[0-9]{1}\\.\\d{1,3}\\.\\d{1,3}|172\\.3[0-1]{1}\\.\\d{1,3}\\.\\d{1,3}",
+      "optional": false
+    },
+    ".cloud_controller.staging_upload_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "staging_upload_user",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".cloud_controller.bulk_api_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "bulk_api",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".cloud_controller.db_encryption_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "db_encryption",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".cloud_controller.encrypt_key": {
+      "type": "secret",
+      "configurable": true,
+      "credential": true,
+      "value": {
+        "secret": "***"
+      },
+      "optional": true
+    },
+    ".cloud_controller.max_file_size": {
+      "type": "integer",
+      "configurable": true,
+      "credential": false,
+      "value": 1024,
+      "optional": false
+    },
+    ".cloud_controller.default_app_memory": {
+      "type": "integer",
+      "configurable": true,
+      "credential": false,
+      "value": 1024,
+      "optional": false
+    },
+    ".cloud_controller.max_disk_quota_app": {
+      "type": "integer",
+      "configurable": true,
+      "credential": false,
+      "value": 2048,
+      "optional": false
+    },
+    ".cloud_controller.default_disk_quota_app": {
+      "type": "integer",
+      "configurable": true,
+      "credential": false,
+      "value": 1024,
+      "optional": false
+    },
+    ".cloud_controller.enable_custom_buildpacks": {
+      "type": "boolean",
+      "configurable": true,
+      "credential": false,
+      "value": true,
+      "optional": false
+    },
+    ".cloud_controller.system_domain": {
+      "type": "wildcard_domain",
+      "configurable": true,
+      "credential": false,
+      "value": "system.azure.crdant.io",
+      "optional": false
+    },
+    ".cloud_controller.apps_domain": {
+      "type": "wildcard_domain",
+      "configurable": true,
+      "credential": false,
+      "value": "apps.azure.crdant.io",
+      "optional": false
+    },
+    ".cloud_controller.default_quota_memory_limit_mb": {
+      "type": "integer",
+      "configurable": true,
+      "credential": false,
+      "value": 10240,
+      "optional": false
+    },
+    ".cloud_controller.default_quota_max_number_services": {
+      "type": "integer",
+      "configurable": true,
+      "credential": false,
+      "value": 100,
+      "optional": false
+    },
+    ".cloud_controller.allow_app_ssh_access": {
+      "type": "boolean",
+      "configurable": true,
+      "credential": false,
+      "value": true,
+      "optional": false
+    },
+    ".cloud_controller.default_app_ssh_access": {
+      "type": "boolean",
+      "configurable": true,
+      "credential": false,
+      "value": true,
+      "optional": false
+    },
+    ".cloud_controller.internal_api_user_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "OWbpGFrsa2d6vJiOKpz3kk_TEGXKV3Ri",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".cloud_controller.security_event_logging_enabled": {
+      "type": "boolean",
+      "configurable": true,
+      "credential": false,
+      "value": true,
+      "optional": false
+    },
+    ".ha_proxy.static_ips": {
+      "type": "ip_ranges",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": true
+    },
+    ".ha_proxy.skip_cert_verify": {
+      "type": "boolean",
+      "configurable": true,
+      "credential": false,
+      "value": true,
+      "optional": false
+    },
+    ".router.status_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "router_status",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".router.static_ips": {
+      "type": "ip_ranges",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": true
+    },
+    ".router.disable_insecure_cookies": {
+      "type": "boolean",
+      "configurable": true,
+      "credential": false,
+      "value": true,
+      "optional": false
+    },
+    ".router.route_services_secret": {
+      "type": "secret",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "secret": "***"
+      },
+      "optional": false
+    },
+    ".router.request_timeout_in_seconds": {
+      "type": "integer",
+      "configurable": true,
+      "credential": false,
+      "value": 900,
+      "optional": false
+    },
+    ".router.drain_wait": {
+      "type": "integer",
+      "configurable": true,
+      "credential": false,
+      "value": 0,
+      "optional": false
+    },
+    ".router.lb_healthy_threshold": {
+      "type": "integer",
+      "configurable": true,
+      "credential": false,
+      "value": 20,
+      "optional": false
+    },
+    ".router.enable_zipkin": {
+      "type": "boolean",
+      "configurable": true,
+      "credential": false,
+      "value": true,
+      "optional": false
+    },
+    ".router.max_idle_connections": {
+      "type": "integer",
+      "configurable": true,
+      "credential": false,
+      "value": 0,
+      "optional": false
+    },
+    ".router.extra_headers_to_log": {
+      "type": "string_list",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": true
+    },
+    ".mysql_monitor.poll_frequency": {
+      "type": "integer",
+      "configurable": true,
+      "credential": false,
+      "value": 30,
+      "optional": false
+    },
+    ".mysql_monitor.write_read_delay": {
+      "type": "integer",
+      "configurable": true,
+      "credential": false,
+      "value": 20,
+      "optional": false
+    },
+    ".mysql_monitor.recipient_email": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": "cdantonio@pivotal.io",
+      "optional": false
+    },
+    ".diego_brain.ssh_host_key": {
+      "type": "rsa_pkey_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "private_key_pem": "***"
+      },
+      "optional": false
+    },
+    ".diego_brain.static_ips": {
+      "type": "ip_ranges",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": true
+    },
+    ".diego_brain.starting_container_count_maximum": {
+      "type": "integer",
+      "configurable": true,
+      "credential": false,
+      "value": 200,
+      "optional": false
+    },
+    ".diego_cell.executor_disk_capacity": {
+      "type": "integer",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": true
+    },
+    ".diego_cell.executor_memory_capacity": {
+      "type": "integer",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": true
+    },
+    ".diego_cell.garden_network_pool": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": "10.254.0.0/22",
+      "optional": false
+    },
+    ".diego_cell.insecure_docker_registry_list": {
+      "type": "string_list",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": true
+    },
+    ".diego_cell.garden_network_mtu": {
+      "type": "integer",
+      "configurable": true,
+      "credential": false,
+      "value": 1454,
+      "optional": false
+    },
+    ".doppler.shared_secret_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "QR8Ics1CM0U_acjlLjgUK4QLHczmqd4w",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".doppler.message_drain_buffer_size": {
+      "type": "integer",
+      "configurable": true,
+      "credential": false,
+      "value": 10000,
+      "optional": false
+    },
+    ".doppler.doppler_tls_cert": {
+      "type": "rsa_cert_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "private_key_pem": "***",
+        "cert_pem": "-----BEGIN CERTIFICATE-----\nMIIDZTCCAk2gAwIBAgIUJW7FOOxHzbq84C2opZAmO9/UzHEwDQYJKoZIhvcNAQEL\nBQAwHzELMAkGA1UEBhMCVVMxEDAOBgNVBAoMB1Bpdm90YWwwHhcNMTcwMzMwMTQy\nODE4WhcNMTkwMzMwMTQyODE4WjAxMQswCQYDVQQGEwJVUzEQMA4GA1UECgwHUGl2\nb3RhbDEQMA4GA1UEAwwHZG9wcGxlcjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCC\nAQoCggEBAMNAP0SQzGsmdpLUn5uQcZOoW8s/UlT5I43fXODlPZEWmKEveCtbCSOH\nQxq68HaOBfhOVvpLIYyJsDdm7kqDNeNcF0/h/BHmdh0j1/B2UeUn3YOyBV/KaZzM\n1hm2AKLPr1rfqF0OX3jCT2eXotszTjrf0IPTnZDrx8SKjw2bF6jA4yqdHHGOLRJg\nl0jE5irnt+Wm8XBwRCcW0TJgjd9P8pUAvQUuZ2lug39b6UDkF1vmTrrVmWmMNdZ/\nWYnUZpYZXI3LvXQwDrqf9L70bErH21+U1+WUDVhmbTVuY85TJWJJa13v1J1dfkEf\nmRELuK58F1wtQd+G+pX6sL8F+47dPRECAwEAAaOBhjCBgzAOBgNVHQ8BAf8EBAMC\nB4AwHQYDVR0OBBYEFC9OXeUfUm3yzo6bvk32JvczeTLyMB0GA1UdJQQWMBQGCCsG\nAQUFBwMCBggrBgEFBQcDATAfBgNVHSMEGDAWgBTt0u1RpuaiaMzrxvt5V4Zir+/c\nhTASBgNVHREECzAJggdkb3BwbGVyMA0GCSqGSIb3DQEBCwUAA4IBAQAY4i6ngz1/\nySKBGd+n6t4J3c7UE14Mw1PvJRbOQcsmZHMX8tXtUir8oiluxwb/sj+53AsANvap\nfG67J3nwbBCn3s5yhDzlaciStOpOrlNwH7/aTTWBK4x1W6H9BZ1oU7KEvja3q2Kd\nOH1teBHa1/cE1Pt5DgXOn0aeNu4hIxyuAyoL2iLjh5HvFav/a7ZtVLp/+JzxpJ8R\ngwi2WAO+CT55oIyKU5GomAl2FYJ/TZCabQ5d+fANVMuF89e2cloYZ8AX3cjjC4zj\njsbVslZjBIn7D1jYANrckNJgtNZSHkwgsznPuCvpQxzjeElkzghb3xXIrFTm5/2U\neipuGDeu86no\n-----END CERTIFICATE-----\n"
+      },
+      "optional": false
+    },
+    ".doppler.metron_tls_cert": {
+      "type": "rsa_cert_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "private_key_pem": "***",
+        "cert_pem": "-----BEGIN CERTIFICATE-----\nMIIDYzCCAkugAwIBAgIUTM+KmkkqCI18MuC0EQtWh+R7+SkwDQYJKoZIhvcNAQEL\nBQAwHzELMAkGA1UEBhMCVVMxEDAOBgNVBAoMB1Bpdm90YWwwHhcNMTcwMzMwMTQy\nODE4WhcNMTkwMzMwMTQyODE4WjAwMQswCQYDVQQGEwJVUzEQMA4GA1UECgwHUGl2\nb3RhbDEPMA0GA1UEAwwGbWV0cm9uMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIB\nCgKCAQEAwNvwHykoRUsvDykXB2QFOd20vkdhSdus1/dW5Jvi9Z+5/vAAERg4ya1o\n3s1Y6/qPpvoRQwxxfDTIbb6chaVrzWw8wK91Jx59n3Bdx4AeXEP6GttQSxcVowo5\n6722NeZ8yeZf5Wh/tK34cNF7QxEBRZfE6YhqMqo8JW+kKvH2RnheiUs9vqs4+R0M\nz5MF4wpk2VdDcNQ0RRa5r9spyc9sHrAdE0OKufKFHxM3zMTurJH/4VLRqVjOkZha\nje89rxOifTNjhmoYVBA+XP1tJhebKgiAT4T9qQM5GgRyGqQpDcwVSLSYxwqr3Vbu\n88zLUWi13wR4PPhEgc6/lTHaddIqiwIDAQABo4GFMIGCMA4GA1UdDwEB/wQEAwIH\ngDAdBgNVHQ4EFgQUwLBbwbAg+QO1oUpMfnvt0rOtpJMwHQYDVR0lBBYwFAYIKwYB\nBQUHAwIGCCsGAQUFBwMBMB8GA1UdIwQYMBaAFO3S7VGm5qJozOvG+3lXhmKv79yF\nMBEGA1UdEQQKMAiCBm1ldHJvbjANBgkqhkiG9w0BAQsFAAOCAQEAIhcAvsrleauD\nvZq9OozOTit0XdfVfQLL3lJkEkS1xXWtN1/TX2nDIZZfrXQnIzx4Mtlvx4YzN+ku\n3f3gKGvSyNn4qqr+F/d3y3oKxjI76vg6cmfwVOyYhebmTdNq8e+J6Z6JS23xXd/P\nTOmjMzlANMlJhqvOfPpOVXFbpbYXhDUNQy3XjGtVSGJ+tRYel/2/AVCC11W/xzd5\nBi1dfTDAqOKUrfbLW35ck1bIkUlMxUA4gBCzOoseggKjqx3vwuT1q7Epu0lmgOzh\n4+AZtY1r6oZJGzel/ZfinNZqPeghUcR06mMyBxFnxC/At6d6H5KQzEdwAhZf/6Jp\nMMjsuG5PQg==\n-----END CERTIFICATE-----\n"
+      },
+      "optional": false
+    },
+    ".doppler.syslogdrainbinder_tls_cert": {
+      "type": "rsa_cert_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "private_key_pem": "***",
+        "cert_pem": "-----BEGIN CERTIFICATE-----\nMIIDejCCAmKgAwIBAgIVAOp8I8cWA3AMCd5t41wRJmKmq+BBMA0GCSqGSIb3DQEB\nCwUAMB8xCzAJBgNVBAYTAlVTMRAwDgYDVQQKDAdQaXZvdGFsMB4XDTE3MDMzMDE0\nMjgxOVoXDTE5MDMzMDE0MjgxOVowOzELMAkGA1UEBhMCVVMxEDAOBgNVBAoMB1Bp\ndm90YWwxGjAYBgNVBAMMEXN5c2xvZ2RyYWluYmluZGVyMIIBIjANBgkqhkiG9w0B\nAQEFAAOCAQ8AMIIBCgKCAQEAxkxGYB+1MXRBDT7OrAm+OptOAlMv/KUlMZmYCIdu\nyP8x7m0YVwD2xJ23bj8V86TyFG5xfCGy8JgWOXSiRcpYMsakCGQVVz6SBpPlLIti\nG2K8SBv4h2tKBETL7WtNuENU+LepYsB+N+F6zEXc+BZGJ8HGqOENgduO5h6+R8Sf\nKEkheS0BFDfbdzchwkyyvixHysgCLk8oRBqWivCW58Uz6vpCVxgvpCFROKcWhjP+\nL0BIkeR1KCKpMSZxwziSSJxkYjjvSN09qkHEK82mmK67W1awGkT51pO9FhGUS8sl\nIYiw0RFpuW1NsylJ/8ZtEi+RMlweoX/uSTDtHreItlv9EQIDAQABo4GQMIGNMA4G\nA1UdDwEB/wQEAwIHgDAdBgNVHQ4EFgQUYRMtc0ybhf/lLFdBp+yBcgBWIgEwHQYD\nVR0lBBYwFAYIKwYBBQUHAwIGCCsGAQUFBwMBMB8GA1UdIwQYMBaAFO3S7VGm5qJo\nzOvG+3lXhmKv79yFMBwGA1UdEQQVMBOCEXN5c2xvZ2RyYWluYmluZGVyMA0GCSqG\nSIb3DQEBCwUAA4IBAQDAVSWB0eiki22YChG/x9Oc9+2sInL7s9QYHuGzHL4cTKzs\nb8B4JaTRVU/Z3z6RF9o/TOJLPtx4sscaHQqHUGP+dmv2/YiF/zkYy06M6v/5zW4y\naAjfubwCO5zRSdBw8SxoURdPlvbDXaAiZppArEgX3GEhF/vqlrdY3ZKEYhGLQ+lX\neZr0f633QWtUZxdl7+pnt6XDOIk6TMho9SYM5e/L67wQq41t4nhsPE9D9Wu/PqAO\nT0JTH+1x7+0HmL/efDvxIWu4MZRtIRu5BaZvxiJEZY/9P+VaXvJ0oMaWx3npK7/H\nszpKwChvua7SqXBIENU2Ad4cRKiP7bqXMJOdNSXM\n-----END CERTIFICATE-----\n"
+      },
+      "optional": false
+    },
+    ".loggregator_trafficcontroller.status_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "AQkPi0ZWXdeTA4lUlM4JM-J70KFT_1IR",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".loggregator_trafficcontroller.trafficcontroller_tls_cert": {
+      "type": "rsa_cert_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "private_key_pem": "***",
+        "cert_pem": "-----BEGIN CERTIFICATE-----\nMIIDeTCCAmGgAwIBAgIUc3Ogw1+cHaVt9sEYxDCWrytSWhIwDQYJKoZIhvcNAQEL\nBQAwHzELMAkGA1UEBhMCVVMxEDAOBgNVBAoMB1Bpdm90YWwwHhcNMTcwMzMwMTQy\nODE5WhcNMTkwMzMwMTQyODE5WjA7MQswCQYDVQQGEwJVUzEQMA4GA1UECgwHUGl2\nb3RhbDEaMBgGA1UEAwwRdHJhZmZpY2NvbnRyb2xsZXIwggEiMA0GCSqGSIb3DQEB\nAQUAA4IBDwAwggEKAoIBAQCYMZDumeiTMgxFP1k2FF0O2B3Cu3p6zdGnLqdut9S8\nf9pgU59h6OdYYUYky4x9j2zmdX692hmb7LzyKN5m4lrfwOeg9+TZnn05naLGmeVy\nyZBxI6q5i1edSKtEIhWSlgs3YDXSnfHAGwJ34caJrdtpzQcUqo+MpqROUO6TTsmo\nsFMYDkmyPAj+HQCV0mK7C0uch1A03tkyqKKnOsAzI1JOntHI+nw+WVRwSdXFL50/\nj/f6ueDzCYJo0yf4RazMxVSnCiGPcvNZ+7YAYNyX0vDRDbI8oQpeou4DCjpUlyrc\nmr5pUtfMkfZCNCsNzCVCGYemCop1UfsdxGET7sLARMSvAgMBAAGjgZAwgY0wDgYD\nVR0PAQH/BAQDAgeAMB0GA1UdDgQWBBR+15qXgQB7NvN1kV1zMOP/3E4yKzAdBgNV\nHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwEwHwYDVR0jBBgwFoAU7dLtUabmomjM\n68b7eVeGYq/v3IUwHAYDVR0RBBUwE4IRdHJhZmZpY2NvbnRyb2xsZXIwDQYJKoZI\nhvcNAQELBQADggEBAGhrojSzMnSK0Mzzf6ge1ix6koi7VtWvVXRbZELPXmPF8ZhT\nBQn/4EpNOa0Ywh1uRwpq4Y4+7KS0XryF6TOlzeZicQvz6Odi4kBusahSul6LBc7j\nKLlCiyWNUcTsKqolY2rHHD+ikVULQoJimDvjQuQRgb+GAuC4VfXjNi5FcjspN/zq\ntUwVJg7nVZVEsPTEjWqTBBTq6mGBy7uCIbKMLHhCsQD/2rhc4hgch0dsT1on/9Tt\ntHM+UyGoCHU8CBDIj6dn5aM2z0QwlXCR2/a3H2gyuTel4wzIzJSxwjZrB9QwE68U\nqfr6V2ALxbHVMdAIH6YZI+UUW898y585sKNyv5Q=\n-----END CERTIFICATE-----\n"
+      },
+      "optional": false
+    },
+    ".loggregator_trafficcontroller.statsdinjector_tls_cert": {
+      "type": "rsa_cert_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "private_key_pem": "***",
+        "cert_pem": "-----BEGIN CERTIFICATE-----\nMIIDdDCCAlygAwIBAgIVAKd4BGqvx0oipELsm+jD22Epj5RZMA0GCSqGSIb3DQEB\nCwUAMB8xCzAJBgNVBAYTAlVTMRAwDgYDVQQKDAdQaXZvdGFsMB4XDTE3MDMzMDE0\nMjgxOVoXDTE5MDMzMDE0MjgxOVowODELMAkGA1UEBhMCVVMxEDAOBgNVBAoMB1Bp\ndm90YWwxFzAVBgNVBAMMDnN0YXRzZGluamVjdG9yMIIBIjANBgkqhkiG9w0BAQEF\nAAOCAQ8AMIIBCgKCAQEAoi3letSTQfLk4J6dvAOg7DploG8Yre5xrqJJY4JgNnie\nNeXsDlkcZpWIn5rnz5Ez9CseQ1guMuEmwxB3RphDvJnpHqq8+x4dG4AvK26y2HOd\nKkgPY0LLTdlvQ4tXs4nHbZbrEykveOfyfdycCUuBPoV6Zt2gJJFn4eddjsObrnj8\nJGJ8MUkxH5U/qYGW0t9G7cjZxIbrzUnpuovxISOQ2uWWCsOHoMPSG576kryA+tlR\nn7nQqocgjL152eF1bGX4ZXlLAIrfRBVyFmFiLZHPnbBSPl9sMEsaEFqWuSqhLh0D\nMX2SbgXWDjAIkHOI/0f9qJn7fUMrg5zw3Ef1enUx5wIDAQABo4GNMIGKMA4GA1Ud\nDwEB/wQEAwIHgDAdBgNVHQ4EFgQUXjSzyOV3LvJ+psDg9H2e8fnlV0EwHQYDVR0l\nBBYwFAYIKwYBBQUHAwIGCCsGAQUFBwMBMB8GA1UdIwQYMBaAFO3S7VGm5qJozOvG\n+3lXhmKv79yFMBkGA1UdEQQSMBCCDnN0YXRzZGluamVjdG9yMA0GCSqGSIb3DQEB\nCwUAA4IBAQAFjt1yD/NNZfDjAsWKi6+ByYTcquMepWHCFtaPnKfx2T+C7jMzFJfD\nhaYuCrXzrHnlrmZpEw80JHhuMdGhDXUP+ix5RKY9NwfKGmOTBWY0eiYXD720c0da\nBlNAiRGtf0oS4YMS0Nv3sVaGiBb/d0ijP2ac5KOr8+x3GAZtqfrU+e9gkAYoO01R\n+99hJnyM2SSN++BZWbTDRE5t9izw27ilrv1zPz7sdz4n13g9KiEpXdM/ryCONheL\n6brCyyXy1SqbhJ85UuJixIRHNuavugDuauO6DEWXDoTrSWnNFqHF6Y6n7co8Z9Fd\n/oM+ilT5H0P51/N4Wc6s+rnCeKOk+Vwu\n-----END CERTIFICATE-----\n"
+      },
+      "optional": false
+    },
+    ".tcp_router.static_ips": {
+      "type": "ip_ranges",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": true
+    },
+    ".push-apps-manager.secret_token": {
+      "type": "secret",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "secret": "***"
+      },
+      "optional": false
+    },
+    ".push-apps-manager.company_name": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": true
+    },
+    ".push-apps-manager.accent_color": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": true
+    },
+    ".push-apps-manager.global_wrapper_bg_color": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": true
+    },
+    ".push-apps-manager.global_wrapper_text_color": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": true
+    },
+    ".push-apps-manager.global_wrapper_header_content": {
+      "type": "text",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": true
+    },
+    ".push-apps-manager.global_wrapper_footer_content": {
+      "type": "text",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": true
+    },
+    ".push-apps-manager.logo": {
+      "type": "text",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": true
+    },
+    ".push-apps-manager.square_logo": {
+      "type": "text",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": true
+    },
+    ".push-apps-manager.footer_text": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": true
+    },
+    ".push-apps-manager.footer_links": {
+      "type": "collection",
+      "configurable": true,
+      "credential": false,
+      "value": [
+
+      ],
+      "optional": true
+    },
+    ".push-apps-manager.nav_links": {
+      "type": "collection",
+      "configurable": true,
+      "credential": false,
+      "value": [
+        {
+          "guid": {
+            "type": "uuid",
+            "configurable": false,
+            "credential": false,
+            "value": "6d64226b-b8ca-4539-8763-8db195f42042",
+            "optional": false
+          },
+          "name": {
+            "type": "string",
+            "configurable": false,
+            "credential": false,
+            "value": "Marketplace",
+            "optional": false
+          },
+          "href": {
+            "type": "string",
+            "configurable": false,
+            "credential": false,
+            "value": "/marketplace",
+            "optional": false
+          }
+        },
+        {
+          "guid": {
+            "type": "uuid",
+            "configurable": false,
+            "credential": false,
+            "value": "295579ad-6a03-42f4-b1a9-8a8c42f0ffbc",
+            "optional": false
+          },
+          "name": {
+            "type": "string",
+            "configurable": false,
+            "credential": false,
+            "value": "Docs",
+            "optional": false
+          },
+          "href": {
+            "type": "string",
+            "configurable": false,
+            "credential": false,
+            "value": "http://docs.pivotal.io/pivotalcf/getstarted/pcf-docs.html",
+            "optional": false
+          }
+        },
+        {
+          "guid": {
+            "type": "uuid",
+            "configurable": false,
+            "credential": false,
+            "value": "153d5a8b-7911-4afd-9bd2-c44f0754045a",
+            "optional": false
+          },
+          "name": {
+            "type": "string",
+            "configurable": false,
+            "credential": false,
+            "value": "Tools",
+            "optional": false
+          },
+          "href": {
+            "type": "string",
+            "configurable": false,
+            "credential": false,
+            "value": "/tools",
+            "optional": false
+          }
+        }
+      ],
+      "optional": false
+    },
+    ".push-apps-manager.product_name": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": true
+    },
+    ".push-apps-manager.marketplace_name": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": true
+    },
+    ".push-apps-manager.enable_invitations": {
+      "type": "boolean",
+      "configurable": true,
+      "credential": false,
+      "value": true,
+      "optional": false
+    },
+    ".push-apps-manager.display_plan_prices": {
+      "type": "boolean",
+      "configurable": true,
+      "credential": false,
+      "value": false,
+      "optional": false
+    },
+    ".push-apps-manager.currency_lookup": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": "{ \"usd\": \"$\", \"eur\": \"€\" }",
+      "optional": false
+    },
+    ".notifications.encryption_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "SJR5Um6O15Ll-t7ZvdKlR0ASspfLog6A",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".push-pivotal-account.encryption_key": {
+      "type": "secret",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "secret": "***"
+      },
+      "optional": false
+    },
+    ".autoscaling.broker_credentials": {
+      "type": "salted_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "3dd3d77c630a6ba4",
+        "salt": "***",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".autoscaling.encryption_key": {
+      "type": "salted_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "f0ceac0f0d4c5eb0",
+        "salt": "***",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".nfsbrokerpush.nfs_broker_push_credentials": {
+      "type": "simple_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "I1HXYvFGOSGOJMfSGmB53-yAZ4hsq9uT",
+        "password": "***"
+      },
+      "optional": false
+    }
+  }
+}

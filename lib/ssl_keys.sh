@@ -1,10 +1,18 @@
 self_signed_certificate () {
-  certificate_request
-  sign_certificate
+  prefix="${1}"
+  certificate_request "${prefix}"
+  sign_certificate "${prefix}"
 }
 
 certificate_request () {
-  openssl req -new -sha256 -nodes -out "${KEYDIR}/${SUBDOMAIN}.csr" -newkey rsa:2048 -keyout "${KEYDIR}/${SUBDOMAIN}.key" -config <(
+  prefix="${1}"
+  if [ -n "${prefix}" ] ; then
+    keyfile="${prefix}-${DOMAIN_TOKEN}"
+  else
+    keyfile="${DOMAIN_TOKEN}"
+  fi
+
+  openssl req -new -sha256 -nodes -out "${KEYDIR}/${keyfile}.csr" -newkey rsa:2048 -keyout "${KEYDIR}/${keyfile}.key" -config <(
   cat <<-EOF
   [req]
   default_bits = 2048
@@ -35,7 +43,13 @@ EOF
 }
 
 sign_certificate () {
-  openssl x509 -req -sha256 -days 3650 -in "${KEYDIR}/${SUBDOMAIN}.csr" -signkey "${KEYDIR}/${SUBDOMAIN}.key" -out "${KEYDIR}/${SUBDOMAIN}.crt"
+  prefix="${1}"
+  if [ -n "${prefix}" ] ; then
+    keyfile="${prefix}-${DOMAIN_TOKEN}"
+  else
+    keyfile="${DOMAIN_TOKEN}"
+  fi
+  openssl x509 -req -sha256 -days 3650 -in "${KEYDIR}/${keyfile}.csr" -signkey "${KEYDIR}/${keyfile}.key" -out "${KEYDIR}/${keyfile}.crt"
 }
 
 aws_request_certificate () {

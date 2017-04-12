@@ -15,12 +15,13 @@ GCPDIR=${HOME}/workspace/pcf-on-gcp
 . "${GCPDIR}/lib/login_ops_manager.sh"
 . "${BASEDIR}/lib/ops_manager.sh"
 . "${BASEDIR}/lib/director.sh"
+. "${BASEDIR}/lib/elastic_runtime.sh"
 . "${BASEDIR}/lib/ssl_keys.sh"
 . "${GCPDIR}/lib/eula.sh"
 . "${BASEDIR}/lib/products.sh"
 . "${GCPDIR}/lib/guid.sh"
-. "${GCPDIR}/lib/networks_azs.sh"
-. "${GCPDIR}/lib/properties.sh"
+. "${BASEDIR}/lib/networks_azs.sh"
+. "${BASEDIR}/lib/properties.sh"
 . "${GCPDIR}/lib/resources.sh"
 . "${GCPDIR}/lib/credentials.sh"
 . "${GCPDIR}/lib/generate_passphrase.sh"
@@ -77,6 +78,11 @@ export PCF_APPS_DOMAIN
 export OPS_MANAGER_HOST
 export OPS_MANAGER_FQDN
 export OPS_MANAGER_API_ENDPOINT
+
+export ALLOW_SSH
+export DEFAULT_SSH
+export ALLOW_BUILDPACKS
+export TCP_ROUTER_PORTS
 
 # dynamic values (created by prepare)
 
@@ -143,9 +149,17 @@ export PUSH_VERSION
 
 # slugs
 export PCF_SLUG
+export PCF_OPSMAN_SLUG
 export OPS_MANAGER_SLUG
+export MYSQL_SLUG
+export REDIS_SLUG
+export RABBIT_SLUG
 export SERVICE_BROKER_SLUG
+export SCS_SLUG
 export PCC_SLUG
+export PUSH_SLUG
+export ISOLATION_SLUG
+export WINDOWS_SLUG
 
 # secrets
 export ADMIN_PASSWORD

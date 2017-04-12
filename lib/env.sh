@@ -57,6 +57,11 @@ prepare_env () {
   OPS_MANAGER_FQDN="${OPS_MANAGER_HOST}.${SUBDOMAIN}"
   OPS_MANAGER_API_ENDPOINT="https://${OPS_MANAGER_FQDN}/api/v0"
 
+  ALLOW_SSH=true
+  DEFAULT_SSH=true
+  ALLOW_BUILDPACKS=true
+  TCP_ROUTER_PORTS="1024-4442,4444-8080,8081-65535"
+
   # set variables for passwords if they are available
   if [ -e ${PASSWORD_LIST} ] ; then
     . ${PASSWORD_LIST}
@@ -72,12 +77,14 @@ set_versions () {
   OPS_MANAGER_VERSION="1.10.1"
   OPS_MANAGER_VERSION_TOKEN=`echo ${OPS_MANAGER_VERSION} | tr . -`
   PCF_VERSION="1.10.3"
-  STEMCELL_VERSION="3263.20"
+  STEMCELL_VERSION="3363.15"
   MYSQL_VERSION="1.8.5"
   RABBIT_VERSION="1.8.0-Alpha-207"
   REDIS_VERSION="1.8.0.beta.102"
   PCC_VERSION="1.0.0"
   SCS_VERSION="1.3.4"
+  SERVICE_BROKER_VERSION="1.2.0"
+  WINDOWS_VERSION="1.10.0"
   CONCOURSE_VERSION="1.0.0-edge.11"
   IPSEC_VERSION="1.5.37"
   PUSH_VERSION="1.8.1"
@@ -87,9 +94,32 @@ set_versions () {
 
 product_slugs () {
   PCF_SLUG="elastic-runtime"
+  PCF_OPSMAN_SLUG="cf"
   OPS_MANAGER_SLUG="ops-manager"
+  MYSQL_SLUG="p-mysql"
+  REDIS_SLUG="p-redis"
+  RABBIT_SLUG="p-rabbitmq"
   SERVICE_BROKER_SLUG="pcf-service-broker-for-aws"
+  SCS_SLUG="p-spring-cloud-services"
   PCC_SLUG="cloud-cache"
+  PUSH_SLUG="push-notification-service"
+  ISOLATION_SLUG="isolation-segment"
+  WINDOWS_SLUG="runtime-for-windows"
+}
+
+store_var () {
+  set -x
+  variable="${1}"
+  value="${2}"
+
+  if [ -z "${value}" ] ; then
+    code="echo \$${variable}"
+    value=`eval $code`
+  fi
+
+  eval "$variable=${value}"
+  echo "$variable=${value}" >> "${AWS_ENV_OUTPUTS}"
+  set +x
 }
 
 store_json_var () {
@@ -98,6 +128,5 @@ store_json_var () {
   jspath="${3}"
 
   value=`echo "${json}" | jq --raw-output "${jspath}"`
-  eval "$variable=${value}"
-  echo "$variable=${value}" >> "${AWS_ENV_OUTPUTS}"
+  store_var ${variable} ${value}
 }
