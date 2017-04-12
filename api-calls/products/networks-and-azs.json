@@ -1,0 +1,18 @@
+{
+  "networks_and_azs": {
+    "singleton_availability_zone": {
+      "name": "${SINGLETON_AVAILABILITY_ZONE}"
+    },
+    "other_availability_zones": [
+      {
+        "name": "${PRIVATE_SUBNET_AVAIALBILITY_ZONE}"
+      },
+      {
+        "name": "${PRIVATE_SUBNET_2_AVAIALBILITY_ZONE}"
+      }
+    ],
+    "network": {
+      "name": "${DIRECTOR_NETWORK_NAME}"
+    }
+  }
+}
