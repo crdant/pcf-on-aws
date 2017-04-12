@@ -43,17 +43,12 @@ download_tile () {
 
   if [ ! -f $tile_file ] ; then
     files_url=`curl -qsLf -H "Authorization: Token $PIVNET_TOKEN" "$releases_url" | jq --raw-output ".releases[] | select( .version == \"$version\" ) ._links .product_files .href"`
-    echo "Files URL: $files_url"
     download_post_url=`curl -qsLf -H "Authorization: Token $PIVNET_TOKEN" $files_url | jq --raw-output ".product_files[] | select( .aws_object_key | endswith(\"pivotal\") ) ._links .download .href"`
-    echo "Download Post URL: $download_post_url"
     if [ -z "$download_post_url" ] ; then
       file_groups_url=`curl -qsLf -H "Authorization: Token $PIVNET_TOKEN" $releases_url | jq --raw-output ".releases[] | select( .version == \"$version\" ) ._links .file_groups .href"`
-      echo "File groups: $file_groups_url"
       download_post_url=`curl -qsLf -H "Authorization: Token $PIVNET_TOKEN" $file_groups_url | jq --raw-output ".file_groups[] .product_files[] | select( .aws_object_key | endswith(\"pivotal\") ) ._links .download .href"`
-      echo "Download Post URL: $download_post_url"
     fi
     download_url=`curl -qsLf -X POST -d "" -H "Accept: application/json" -H "Content-Type: application/json" -H "Authorization: Token $PIVNET_TOKEN" $download_post_url -w "%{url_effective}\n"`
-    echo "Download URL: $download_url"
     curl -qsLf -o $tile_file $download_url
   fi
 
