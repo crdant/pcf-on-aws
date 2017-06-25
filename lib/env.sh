@@ -11,8 +11,8 @@ prepare_env () {
   DNS_TTL=60
   CIDR="10.0.0.0/20"
 
-  SERVICES_CIDR_AZ_1="10.0.64.0/20"
-  SERVICES_CIDR_AZ_2="10.0.128.0/20"
+  SERVICES_CIDR_AZ_1="10.0.64.0/22"
+  SERVICES_CIDR_AZ_2="10.0.128.0/22"
   PRIVATE_SUBNET_GATEWAY="10.0.16.1"
   PRIVATE_SUBNET_RESERVED_IP_RANGE="10.0.16.1-10.0.16.9"
   PRIVATE_SUBNET_2_GATEWAY="10.0.32.1"
@@ -44,7 +44,7 @@ prepare_env () {
   KEYDIR="${BASEDIR}/keys"
   WORKDIR="${BASEDIR}/work"
   PASSWORD_LIST="${KEYDIR}/password-list"
-  AWS_ENV_OUTPUTS="${WORKDIR}/aws-env.sh"
+  ENV_OUTPUTS="${WORKDIR}/installed-env.sh"
   SSH_PEM_PATH=${KEYDIR}/${BOSH_KEY_PAIR}.pem
 
   OPS_MANAGER_INSTANCE_NAME="${OPS_MANAGER_SLUG}-${DOMAIN_TOKEN}"
@@ -68,28 +68,27 @@ prepare_env () {
   fi
 
   # set variables for various created elements
-  if [ -e "${AWS_ENV_OUTPUTS}" ] ; then
-    . ${AWS_ENV_OUTPUTS}
+  if [ -e "${ENV_OUTPUTS}" ] ; then
+    . ${ENV_OUTPUTS}
   fi
 }
 
 set_versions () {
-  OPS_MANAGER_VERSION="1.10.1"
+  OPS_MANAGER_VERSION="1.11.0"
   OPS_MANAGER_VERSION_TOKEN=`echo ${OPS_MANAGER_VERSION} | tr . -`
-  PCF_VERSION="1.10.3"
-  STEMCELL_VERSION="3363.15"
-  MYSQL_VERSION="1.8.5"
-  RABBIT_VERSION="1.8.0-Alpha-207"
-  REDIS_VERSION="1.8.0.beta.102"
-  PCC_VERSION="1.0.0"
-  SCS_VERSION="1.3.4"
-  SERVICE_BROKER_VERSION="1.2.0"
-  WINDOWS_VERSION="1.10.0"
-  CONCOURSE_VERSION="1.0.0-edge.11"
-  IPSEC_VERSION="1.5.37"
-  PUSH_VERSION="1.8.1"
-  SSO_VERSION="1.3.1"
-  ISOLATION_VERSION="1.10.1"
+  PCF_VERSION="1.10.14"
+  STEMCELL_VERSION="3421.3"
+  MYSQL_VERSION="1.9.4"
+  RABBIT_VERSION="1.8.8"
+  REDIS_VERSION="1.8.2"
+  PCC_VERSION="1.0.4"
+  SCS_VERSION="1.4.0"
+  SERVICE_BROKER_VERSION="1.3.0"
+  WINDOWS_VERSION="1.11.0"
+  ISOLATION_VERSION="1.11.0"
+  IPSEC_VERSION="1.6.3"
+  PUSH_VERSION="1.9.0"
+  SSO_VERSION="1.4.1"
 }
 
 product_slugs () {
@@ -103,9 +102,14 @@ product_slugs () {
   SCS_SLUG="p-spring-cloud-services"
   PCC_SLUG="cloud-cache"
   PUSH_SLUG="push-notification-service"
+  SSO_SLUG="p-identity"
+  IPSEC_SLUG="p-ipsec-addon"
   ISOLATION_SLUG="isolation-segment"
+  SCHEDULER_SLUG="p-scheduler-for-pcf"
   WINDOWS_SLUG="runtime-for-windows"
+  STACKDRIVER_SLUG="gcp-stackdriver-nozzle"
 }
+
 
 store_var () {
   set -x
@@ -118,7 +122,7 @@ store_var () {
   fi
 
   eval "$variable=${value}"
-  echo "$variable=${value}" >> "${AWS_ENV_OUTPUTS}"
+  echo "$variable=${value}" >> "${ENV_OUTPUTS}"
   set +x
 }
 

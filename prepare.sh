@@ -19,8 +19,8 @@ GCPDIR="${BASEDIR}/../pcf-on-gcp"
 . "${GCPDIR}/lib/networks_azs.sh"
 
 new_env_file () {
-  rm "${AWS_ENV_OUTPUTS}"
-  touch "${AWS_ENV_OUTPUTS}"
+  rm "${ENV_OUTPUTS}"
+  touch "${ENV_OUTPUTS}"
 }
 
 passwords () {
@@ -42,7 +42,7 @@ security () {
   aws ec2 create-key-pair --key-name "${BOSH_KEY_PAIR}" --output text > "${SSH_PEM_PATH}"
   chmod 600 "${SSH_PEM_PATH}"
   CERTIFICATE_ARN=`aws_request_certificate "${SUBDOMAIN}" "${DOMAIN}"`
-  echo "CERTIFICATE_ARN=${CERTIFICATE_ARN}" >> "${AWS_ENV_OUTPUTS}"
+  echo "CERTIFICATE_ARN=${CERTIFICATE_ARN}" >> "${ENV_OUTPUTS}"
 }
 
 cloudformation () {
@@ -120,7 +120,7 @@ store_output_var () {
 
   value=`echo $outputs | jq --raw-output ". [] | select ( .OutputKey == \"$key\" ) .OutputValue"`
   eval "$variable=${value}"
-  echo "$variable=${value}" >> "${AWS_ENV_OUTPUTS}"
+  echo "$variable=${value}" >> "${ENV_OUTPUTS}"
 }
 
 store_output_secret () {
@@ -179,15 +179,15 @@ ops_manager () {
   echo "Creating disk image for Operations Manager from the Pivotal provided image..."
   instance_info=`aws ec2 run-instances --image-id "${IMAGE_ID}" --instance-type "${OPS_MANAGER_INSTANCE_TYPE}" --key-name "${BOSH_KEY_PAIR}" --subnet-id "${PUBLIC_SUBNET_ID}" --security-group-ids "${OPS_MANAGER_SECURITY_GROUP_ID}" --associate-public-ip-address`
   OPS_MANAGER_INSTANCE_ID=`echo "${instance_info}" | jq --raw-output '.Instances[0].InstanceId'`
-  echo "OPS_MANAGER_INSTANCE_ID=${OPS_MANAGER_INSTANCE_ID}" >> ${AWS_ENV_OUTPUTS}
+  echo "OPS_MANAGER_INSTANCE_ID=${OPS_MANAGER_INSTANCE_ID}" >> ${ENV_OUTPUTS}
   aws ec2 wait instance-running --instance-ids ${OPS_MANAGER_INSTANCE_ID}
   aws ec2 create-tags --resources "${OPS_MANAGER_INSTANCE_ID}" --tags "Name=Name,Value=ops-manager-${OPS_MANAGER_VERSION_TOKEN}-${DOMAIN}"
 
   running_instance_info=`aws ec2 describe-instances --instance-ids ${OPS_MANAGER_INSTANCE_ID}`
   OPS_MANAGER_PRIVATE_IP=`echo "${running_instance_info}" | jq --raw-output '.Reservations[0].Instances[0].PrivateIpAddress'`
-  echo "OPS_MANAGER_PRIVATE_IP=${OPS_MANAGER_PRIVATE_IP}" >> ${AWS_ENV_OUTPUTS}
+  echo "OPS_MANAGER_PRIVATE_IP=${OPS_MANAGER_PRIVATE_IP}" >> ${ENV_OUTPUTS}
   OPS_MANAGER_PUBLIC_IP=`echo "${running_instance_info}" | jq --raw-output '.Reservations[0].Instances[0].PublicIpAddress'`
-  echo "OPS_MANAGER_PUBLIC_IP=${OPS_MANAGER_PUBLIC_IP}" >> ${AWS_ENV_OUTPUTS}
+  echo "OPS_MANAGER_PUBLIC_IP=${OPS_MANAGER_PUBLIC_IP}" >> ${ENV_OUTPUTS}
 
   # make sure we can get to it
   echo "Configuring DNS for Operations Manager..."
@@ -199,8 +199,9 @@ ops_manager () {
   # this line looks a little funny, but it's to make sure we keep the passwords out of the environment
   echo "Configuring authentication for ops manager..."
   setup_ops_manager_auth
-  sleep 60
+  sleep 120
   curl --insecure "https://${OPS_MANAGER_FQDN}/login/ensure_availability" > /dev/null
+
   echo "Operation manager authenticate configured. Your username is admin and password is ${ADMIN_PASSWORD}."
 
   # log in to the ops_manager so the script can manipulate it later
@@ -302,22 +303,22 @@ START_SECONDS=`date +%s`
 echo "Started preparing Cloud Foundry installation on Amazon Web Services at ${START_TIMESTAMP}..."
 
 prepare_env
-# new_env_file
-# passwords
-# security
-#
-# while true; do
-#     read -p "Have you validated domain ownership for the certificate (y/n)? " yn
-#     case $yn in
-#         [Yy]* ) break;;
-#         [Nn]* ) exit;;
-#         * ) echo "Please answer yes or no.";;
-#     esac
-# done
-#
-# cloudformation
-# ops_manager
-# elastic_runtime
+new_env_file
+passwords
+security
+
+while true; do
+    read -p "Have you validated domain ownership for the certificate (y/n)? " yn
+    case $yn in
+        [Yy]* ) break;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
+
+cloudformation
+ops_manager
+elastic_runtime
 services_network
 
 END_TIMESTAMP=`date`

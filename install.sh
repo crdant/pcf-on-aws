@@ -8,6 +8,8 @@ GCPDIR="${BASEDIR}/../pcf-on-gcp"
 . "${GCPDIR}/lib/login_ops_manager.sh"
 . "${BASEDIR}/lib/ops_manager.sh"
 . "${BASEDIR}/lib/elastic_runtime.sh"
+. "${BASEDIR}/lib/rabbitmq.sh"
+. "${BASEDIR}/lib/redis.sh"
 . "${GCPDIR}/lib/eula.sh"
 . "${BASEDIR}/lib/products.sh"
 . "${GCPDIR}/lib/guid.sh"
@@ -25,11 +27,12 @@ init () {
   INSTALL_SCS=0
   INSTALL_AWS=0
   INSTALL_PCC=0
-  INSTALL_CONCOURSE=0
   INSTALL_IPSEC=0
   INSTALL_PUSH=0
   INSTALL_ISOLATION=0
   INSTALL_WINDOWS=0
+  INSTALL_SCHEDULER=0
+  INSTALL_STACKDRIVER=0
 }
 
 parse_args () {
@@ -54,14 +57,14 @@ parse_args () {
           "scs")
             INSTALL_SCS=1
             ;;
-          "azure")
-            INSTALL_AWS=1
+          "gcp")
+            INSTALL_GCP=1
             ;;
           "pcc")
             INSTALL_PCC=1
             ;;
-          "concourse")
-            INSTALL_CONCOURSE=1
+          "scheduler")
+            INSTALL_SCHEDULER=1
             ;;
           "notifications")
             INSTALL_PUSH=1
@@ -75,6 +78,9 @@ parse_args () {
           "windows")
             INSTALL_WINDOWS=1
             ;;
+          "stackdriver")
+            INSTALL_STACKDRIVER=1
+            ;;
           "default")
             set_defaults
             ;;
@@ -84,13 +90,14 @@ parse_args () {
             INSTALL_RABBIT=1
             INSTALL_REDIS=1
             INSTALL_SCS=1
-            INSTALL_AWS=1
+            INSTALL_GCP=1
             INSTALL_PCC=1
-            INSTALL_CONCOURSE=1
+            INSTALL_SCHEDULER=1
             INSTALL_IPSEC=1
             INSTALL_PUSH=1
             INSTALL_ISOLATION=1
             INSTALL_WINDOWS=1
+            INSTALL_STACKDRIVER=1
             ;;
           "--help")
             usage
@@ -119,10 +126,11 @@ set_defaults () {
 
 usage () {
   cmd=`basename $0`
-  echo "$cmd [ pcf ] [isolation] [windows] [ mysql ] [ rabbit ] [ redis ] [ scs ] [ azure ] [ pcc ] [ concourse ] [ notifications ]"
+  echo "$cmd [ pcf ] [isolation] [windows] [ mysql ] [ rabbit ] [ redis ] [ scs ] [ gcp ] [ pcc ] [ scheduler ] [ notifications ]"
 }
 
 products () {
+
   if [ "$INSTALL_PCF" -eq 1 ] ; then
     cloud_foundry
   fi
@@ -151,10 +159,6 @@ products () {
     service_broker
   fi
 
-  if [ "$INSTALL_CONCOURSE" -eq 1 ] ; then
-    concourse
-  fi
-
   if [ "$INSTALL_PUSH" -eq 1 ] ; then
     push_notifications
   fi
@@ -181,6 +185,18 @@ stemcell () {
   stemcell_file=`download_stemcell ${STEMCELL_VERSION}`
   echo "Uploading stemcell to Operations Manager..."
   upload_stemcell $stemcell_file
+}
+
+services_stemcell () {
+  if [ -z "${SERVICES_STEMCELL_UPLOADED}" ] ; then
+    login_ops_manager
+    echo "Downloading stemcell ${SERVICES_STEMCELL_VERSION} for services..."
+    accept_eula "stemcells" "${SERVICES_STEMCELL_VERSION}" "yes"
+    stemcell_file=`download_stemcell ${SERVICES_STEMCELL_VERSION}`
+    echo "Uploading stemcell ($stemcell_file) to Operations Manager..."
+    upload_stemcell $stemcell_file
+    SERVICE_STEMCELL_UPLOADED="yes"
+  fi
 }
 
 cloud_foundry () {
@@ -215,39 +231,60 @@ cloud_foundry () {
 }
 
 mysql () {
-  add_to_install "Rabbit MQ Broker" "${MYSQL_SLUG}" "${MYSQL_VERSION}"
+  add_to_install "MYSQL Broker" "${MYSQL_SLUG}" "${MYSQL_VERSION}"
   store_var MYSQL_GUID "${GUID}"
   set_networks_azs "${MYSQL_SLUG}"
+  services_stemcell
 }
 
 rabbit () {
-  add_to_install "Rabbit MQ Broker" "${RABBIT_SLUG}" "${REDIS_VERSION}"
-  store_var REDIS_GUID "${GUID}"
-  set_networks_azs "${RABIT_SLUG}"
+  add_to_install "Rabbit MQ Broker" "${RABBIT_SLUG}" "${RABBIT_VERSION}"
+  store_var RABBIT_GUID "${GUID}"
+  set_networks_azs "${RABBIT_SLUG}"
+  set_rabbit_config
+  set_rabbit_single_node_plan
+  services_stemcell
 }
 
 redis () {
   add_to_install "Redis Service Broker" "${REDIS_SLUG}" "${REDIS_VERSION}"
   store_var REDIS_GUID "${GUID}"
   set_networks_azs "${REDIS_SLUG}"
+  set_redis_plans
+  services_stemcell
 }
 
 cloud_cache () {
   add_to_install "Spring Cloud Services" "${PCC_SLUG}" "${PCC_VERSION}"
   store_var PCC_GUID "${GUID}"
   set_networks_azs "${PCC_SLUG}"
+  services_stemcell
 }
 
 spring_cloud_services () {
   add_to_install "Spring Cloud Services" "${SCS_SLUG}" "${SCS_VERSION}"
   store_var SCS_GUID "${GUID}"
   set_networks_azs "${SCS_SLUG}"
+  services_stemcell
 }
 
 service_broker () {
   add_to_install "AWS Service Broker" "${SERVICE_BROKER_SLUG}" "${SERVICE_BROKER_VERSION}"
   store_var SERVICE_BROKER_GUID "${GUID}"
-  set_networks_azs "${SEVICE_BROKER_SLUG}"
+
+  # since sed works a line at a time, translate newlines to a character that isn't Base64, then
+  # replace that character with an escaped newline
+  CLIENT_KEY=`cat "${KEYDIR}/gcp-service-broker-db-client.key" | tr '\n' '%' | sed 's/%/\\\n/g'`
+  CLIENT_CERT=`cat "${KEYDIR}/gcp-service-broker-db-client.crt" | tr '\n' '%' | sed 's/%/\\\n/g'`
+  SERVER_CERT=`cat "${KEYDIR}/gcp-service-broker-db-server.crt" | tr '\n' '%' | sed 's/%/\\\n/g'`
+  SERVICE_ACCOUNT_CREDENTIALS=`cat "${KEYDIR}/${PROJECT}-service-broker-${SUBDOMAIN_TOKEN}.json" | jq -c '.' | sed 's/\"/\\\"/g'`
+  BROKER_DB_HOST=`cat "${WORKDIR}/gcp-service-broker-db.ip"`
+
+  set_networks_azs "gcp-service-broker"
+
+  PROPERTIES_JSON=`export SERVICE_ACCOUNT_CREDENTIALS BROKER_DB_HOST BROKER_DB_USER BROKER_DB_USER_PASSWORD CLIENT_KEY CLIENT_CERT SERVER_CERT ; envsubst < api-calls/gcp-service-broker-properties.json ; unset SERVICE_ACCOUNT_CREDENTIALS BROKER_DB_HOST BROKER_DB_USER BROKER_DB_USER_PASSWORD CLIENT_KEY CLIENT_CERT SERVER_CERT`
+  set_properties "gcp-service-broker" "${PROPERTIES_JSON}"
+
 }
 
 windows () {
@@ -265,12 +302,6 @@ windows_stemcell () {
   upload_stemcell $stemcell_file
 }
 
-concourse () {
-  add_to_install "Concourse" "${CONCOURSE_SLUG}" "${CONCOURSE_VERSION}"
-  store_var CONCOURSE_GUID "${GUID}"
-  set_networks_azs "${CONCOURSE_SLUG}"
-}
-
 push_notifications () {
   add_to_install "Push Notifications" "${PUSH_SLUG}" "${PUSH_VERSION}"
   store_var PUSH_GUID "${GUID}"
@@ -281,6 +312,29 @@ isolation_segments () {
   add_to_install "Isolation Segments" "${ISOLATION_SLUG}" "${ISOLATION_VERSION}"
   store_var ISOLATION_GUID "${GUID}"
   set_networks_azs "${ISOLATION_SLUG}"
+}
+
+scheduler () {
+  add_to_install "Isolation Segments" "${SCHEDULER_SLUG}" "${SCHEDULER_VERSION}"
+  store_var SCHEDULER_GUID "${GUID}"
+  set_networks_azs "${SCHEDULER_SLUG}"
+}
+
+
+stackdriver () {
+  add_to_install "Stackdriver Nozzle" "${STACKDRIVER_SLUG}" "${STACKDRIVER_VERSION_NUM}"
+  store_var STACKDRIVER_GUID "${GUID}"
+
+  # create UAA user
+  uaac target "https://uaa.${PCF_SYSTEM_DOMAIN}" --skip-ssl-validation
+  # NOTE: the secret being set here will not work, it is not correct and the correct one does not appear
+  #       to be available without decoding installation.yml...stay tuned
+  local uaa_admin_secret=`get_credential cf .uaa.admin_client_credentials`
+  uaac token client get admin -s "${uaa_admin_secret}"
+  uaac -t user add stackdriver-nozzle --password ${STACKDRIVER_NOZZLE_PASSWORD} --emails na
+  # these probably need Cloud Foundry installed before you can do anything with them
+  uaac -t member add cloud_controller.admin_read_only stackdriver-nozzle
+  uaac -t member add doppler.firehose stackdriver-nozzle
 }
 
 ipsec () {
@@ -309,8 +363,8 @@ add_to_install() {
     echo "Uploading ${product_name}..."
     upload_tile $tile_file
   fi
-  echo "Staging ${product_name}..."
-  stage_product "${opsman_slug}"
+  echo "Staging ${product_name} (${opsman_slug})..."
+  stage_product "${opsman_slug}" "${version}"
   GUID=`product_guid "${opsman_slug}"`
 }
 

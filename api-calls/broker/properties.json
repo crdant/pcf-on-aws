@@ -1,0 +1,176 @@
+{
+  "properties": {
+    ".properties.org": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": "system",
+      "optional": false
+    },
+    ".properties.space": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": "azure-service-broker-space",
+      "optional": false
+    },
+    ".properties.apply_open_security_group": {
+      "type": "boolean",
+      "configurable": true,
+      "credential": false,
+      "value": true,
+      "optional": false
+    },
+    ".properties.allow_paid_service_plans": {
+      "type": "boolean",
+      "configurable": true,
+      "credential": false,
+      "value": true,
+      "optional": false
+    },
+    ".properties.azure_service_broker_enable_global_access_to_plans": {
+      "type": "boolean",
+      "configurable": true,
+      "credential": false,
+      "value": true,
+      "optional": false
+    },
+    ".properties.environment": {
+      "type": "dropdown_select",
+      "configurable": true,
+      "credential": false,
+      "value": "AzureCloud",
+      "optional": false,
+      "options": [
+        {
+          "label": "Azure Cloud",
+          "value": "AzureCloud"
+        },
+        {
+          "label": "Azure China Cloud",
+          "value": "AzureChinaCloud"
+        }
+      ]
+    },
+    ".properties.subscription_id": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": "c1d4c23b-c506-4061-aed5-67def4f11a0e",
+      "optional": false
+    },
+    ".properties.tenant_id": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": "29248f74-371f-4db2-9a50-c62a6877a0c1",
+      "optional": false
+    },
+    ".properties.client_id": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": "ac44cc40-0aa3-4e66-91b3-8a0739067452",
+      "optional": false
+    },
+    ".properties.client_secret": {
+      "type": "secret",
+      "configurable": true,
+      "credential": true,
+      "value": {
+        "secret": "***"
+      },
+      "optional": false
+    },
+    ".properties.azure_broker_database_provider": {
+      "type": "dropdown_select",
+      "configurable": true,
+      "credential": false,
+      "value": "sqlserver",
+      "optional": false,
+      "options": [
+        {
+          "label": "SQL Database",
+          "value": "sqlserver"
+        }
+      ]
+    },
+    ".properties.azure_broker_database_server": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": "pcf-broker-crdant-io.database.windows.net",
+      "optional": false
+    },
+    ".properties.azure_broker_database_user": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": "pcf-service-broker",
+      "optional": false
+    },
+    ".properties.azure_broker_database_password": {
+      "type": "secret",
+      "configurable": true,
+      "credential": true,
+      "value": {
+        "secret": "***"
+      },
+      "optional": false
+    },
+    ".properties.azure_broker_database_name": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": "pcf-service-broker",
+      "optional": false
+    },
+    ".properties.azure_broker_database_encryption_key": {
+      "type": "secret",
+      "configurable": true,
+      "credential": true,
+      "value": {
+        "secret": "***"
+      },
+      "optional": false
+    },
+    ".properties.azure_sqldb_allow_to_create_sql_server": {
+      "type": "boolean",
+      "configurable": true,
+      "credential": false,
+      "value": true,
+      "optional": false
+    },
+    ".properties.azure_sqldb_sql_server_pool": {
+      "type": "collection",
+      "configurable": true,
+      "credential": false,
+      "value": [
+
+      ],
+      "optional": true
+    },
+    ".deploy-all.app_credentials": {
+      "type": "salted_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "e0be1702913095ca",
+        "salt": "***",
+        "password": "***"
+      },
+      "optional": false
+    },
+    ".delete-all.app_credentials": {
+      "type": "salted_credentials",
+      "configurable": false,
+      "credential": true,
+      "value": {
+        "identity": "989be091a23a9ef1",
+        "salt": "***",
+        "password": "***"
+      },
+      "optional": false
+    }
+  }
+}
